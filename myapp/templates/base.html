@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Home Run | Real Estate </title>
+    <link type="text/css" rel="stylesheet" href="{% static 'myapp/css/main.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+<main>
+    <ul>
+        <li><a {% if request.path == '/' %} class="active"{% endif %} href="{% url 'home' %}">Home</a></li>
+        <li><a {% if request.path == '/searchproperty/' %} class="active"{% endif %} href="{% url 'searchproperty' %}">Search Property</a></li>
+        <li><a {% if request.path == '/advertiseproperty' %} class="active"{% endif %} href="{% url 'advertiseproperty' %}">Advertise Property</a></li>
+        <li><a {% if request.path == '/about/' %}class="active"{% endif %} href="{% url 'about' %}">About</a></li>
+        <li><a {% if request.path == '/contactus/' %}class="active"{% endif %} href="{% url 'contactus' %}">Contact</a></li>
+        <li style="float:right"><a {% if request.path == '/signin/' %}class="active"{% endif %} href="{% url 'signin' %}">Sign In</a></li>
+        <li style="float:right"><a {% if request.path == '/register/' %}class="active"{% endif %} href="{% url 'register' %}">Register</a></li>
+    </ul>
+    <div class="template-container">
+        {% block body %}
+        {% endblock %}
+    </div>
+    <footer class="footer">
+        <div class="row">
+            <div class="footer-columns">
+                <h3 class="footer-title">About</h3>
+                <p class="footer-title">I am current a footer for this website</p>
+            </div>
+            <div class="footer-columns">
+                <h3 class="footer-title">About</h3>
+                <p class="footer-title">I am current a footer for this website</p>
+            </div>
+            <div class="footer-columns">
+                <h3 class="footer-title">About</h3>
+                <p class="footer-title">I am current a footer for this website</p>
+            </div>
+        </div>
+        <p class="footer-title">© 2018 Home Run. All Rights Reserved | Design By Group1</p>
+    </footer>
+</main>
+</body>
+</html>
