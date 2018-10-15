@@ -255,3 +255,7 @@ li a:hover:not(.active) {
     clear: both;
     display: table;
 }
+
+h1, h2 {
+    font-weight: bold;
+}
