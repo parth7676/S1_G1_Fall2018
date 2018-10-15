@@ -110,3 +110,9 @@ venv.bak/
 .dmypy.json
 .idea/
 /.idea/*
+/local/
+/.vscode/
+/bin/
+/include/
+/myvenv/
+/share/
