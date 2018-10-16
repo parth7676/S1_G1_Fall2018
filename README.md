@@ -1,0 +1,2 @@
+# Home Run
+A Django real-estate website developed with <span style="color: #fc0707;">&hearts;</span> by  Parth Patel [(@parth7676)](https://github.com/parth7676), Hardik Patel [(@passionInfinite)](https://github.com/passionInfinite), Devanshi Khanna [(@devanshikhanna)](https://github.com/devanshikhanna), Siddharth Thakor [(@likesidheart)](https://github.com/likesidheart), Neha Singla [(@singlaneha2205)](https://github.com/singlaneha2205).
