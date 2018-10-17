@@ -21,3 +21,6 @@ def Register(request):
 
 def Signin(request):
     return render(request, 'login.html')
+
+def PropertyDetails(request):
+    return render(request, 'propertydetails.html')

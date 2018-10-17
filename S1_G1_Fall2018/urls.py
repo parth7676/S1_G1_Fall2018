@@ -25,5 +25,6 @@ urlpatterns = [
     path('advertiseproperty/', views.AdvertiseProperty, name="advertiseproperty"),
     path('signin/', views.Signin, name="signin"),
     path('register/', views.Register, name="register"),
-    path('contactus/', views.Contact, name="contactus")
+    path('contactus/', views.Contact, name="contactus"),
+    path('details/', views.PropertyDetails, name="propertydetails")
 ]

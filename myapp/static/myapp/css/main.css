@@ -261,40 +261,83 @@ h1, h2 {
     font-weight: bold;
 }
 
+.recent-properties-header {
+    text-align: center;
+    padding: 15px 0px;
+}
+
+.recent-properties-header p {
+    color: grey;
+}
+
 .property {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: calc(100vw / 3);
-    padding: 10px;
-    background-color: #ffffff;
-    margin-bottom: 10px;
+    float: left;
+    width: 32.3%;
+    margin: 0px 2px 16px 2px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+@media screen and (max-width: 650px) {
+  .property {
+    width: 100%;
+    display: block;
+  }
+}
+
+.property-marker {
+    margin-right: 5px;
 }
 
 .property-image {
     width: 100%;
-    height: auto;
+    height: 250px;
     display: block;
-    max-width: 250px;
     margin-bottom: 5px;
 }
 
-.property-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  margin: 5px 0px;
+.property-text {
+    text-align: center;
+    padding: 0 8px;
 }
 
-.property-title {
-    color: gray;
-    width: 250px;
-    word-wrap: break-word;
+.property-text h5 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.property-text p {
+    color: #9E9E9E;
+}
+
+.property-room-wrap-info {
+    padding: 25px 25px 0px 25px;
+}
+
+.property-room-info {
+    border-top: 1px solid #000000;
+    padding: 15px 0px;
+    overflow: hidden;
+}
+
+.property-room-info .rf-left {
+    float: left;
+    text-align: left;
+}
+
+.property-room-info .rf-right {
+    float: right;
+    text-align: left;
+}
+
+.property-price {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding: 13px;
+    background: #000000;
+    color: #fff;
+    text-decoration: none;
 }
