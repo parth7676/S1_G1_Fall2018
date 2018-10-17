@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+<div class="property-detail-left-column">
+    <div class="property-photo-container">
+        <span onclick="this.parentElement.style.display='none'" class="property-photo-closebtn">&times;</span>
+        <img id="expandedImg" style="width:100%">
+        <div id="imgtext"></div>
+    </div>
+        <div class="row">
+        <div class="property-photo-column">
+            <img src="{% static 'myapp/images/img_nature.jpg' %}" alt="Nature" style="width:100%" onclick="propertyImageZoom(this);">
+        </div>
+        <div class="property-photo-column">
+            <img src="{% static 'myapp/images/img_snow.jpg' %}" alt="Snow" style="width:100%" onclick="propertyImageZoom(this);">
+        </div>
+        <div class="property-photo-column">
+            <img src="{% static 'myapp/images/img_mountains.jpg' %}" alt="Mountains" style="width:100%" onclick="propertyImageZoom(this);">
+        </div>
+        <div class="property-photo-column">
+            <img src="{% static 'myapp/images/img_lights.jpg' %}" alt="Lights" style="width:100%" onclick="propertyImageZoom(this);">
+        </div>
+    </div>
+</div>
+<div class="property-detail-right-column">
+    <div class="property-card">
+      <h2><i class="fas fa-map-marker-alt property-marker"></i> 176 Kingsberry, Dr Anderson Street, Windsor N9B 2N6</h2>
+      <div class="property-detail-price-wrap">
+        <div class="property-detail-price">
+            <p>$ 2,50,000</p>
+        </div>
+        <p>* Above mentioned price do not include any kind of taxes.</p>
+      </div>
+      <div class="property-details">
+        <h2>Property Details</h2>
+        <p><i class="fa fa-th-large"></i> 1500 Square foot</p>
+		<p><i class="fa fa-bed"></i> 16 Bedrooms</p>
+		<p><i class="fa fa-user"></i> Gina Wesley</p>
+		<p><i class="fa fa-car"></i> 2 Garages</p>
+		<p><i class="fa fa-building"></i> Family Villa</p>
+		<p><i class="fa fa-clock"></i> 1 days ago</p>
+		<p><i class="fa fa-bath"></i> 8 Bathrooms</p>
+		<p><i class="fa fa-trophy"></i> 5 years age</p>
+      </div>
+    </div>
+ </div>
+
+{% endblock %}

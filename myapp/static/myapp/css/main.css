@@ -22,6 +22,7 @@ main {
 .template-container {
     background-color: #EEEEEE;
     margin: 40px 50px;
+    padding: 22px;
 }
 
 header {
@@ -127,7 +128,7 @@ aside {
 }
 
 #table2 div {
-    display: tablle-cell;
+    display: table-cell;
     float: left;
 }
 
@@ -258,4 +259,178 @@ li a:hover:not(.active) {
 
 h1, h2 {
     font-weight: bold;
+}
+
+.recent-properties-header {
+    text-align: center;
+    padding: 15px 0px;
+}
+
+.recent-properties-header p {
+    color: grey;
+}
+
+.property {
+    float: left;
+    width: 32.3%;
+    margin: 0px 2px 16px 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+@media screen and (max-width: 650px) {
+  .property {
+    width: 100%;
+    display: block;
+  }
+}
+
+.property-marker {
+    margin-right: 5px;
+}
+
+.property-image {
+    width: 100%;
+    height: 250px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.property-text {
+    text-align: center;
+    padding: 0 8px;
+}
+
+.property-text h5 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.property-text p {
+    color: #9E9E9E;
+}
+
+.property-room-wrap-info {
+    padding: 25px 25px 0px 25px;
+}
+
+.property-room-info {
+    border-top: 1px solid #000000;
+    padding: 15px 0px;
+    overflow: hidden;
+}
+
+.property-room-info .rf-left {
+    float: left;
+    text-align: left;
+}
+
+.property-room-info .rf-right {
+    float: right;
+    text-align: left;
+}
+
+.property-price {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding: 13px;
+    background: #000000;
+    color: #fff;
+    text-decoration: none;
+}
+
+.property-detail-left-column {
+    width: 60%;
+    float: right;
+}
+
+.property-detail-right-column{
+    width: 38%;
+    padding-left: 20px;
+}
+
+.property-photo-column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.property-photo-column img {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.property-photo-column img:hover {
+    opacity: 1;
+}
+
+/* The expanding image container */
+.property-photo-container {
+    position: relative;
+    display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.property-photo-closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.property-card {
+    background-color: white;
+    padding: 20px;
+}
+
+.property-detail-price {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 5px;
+    margin: 20px 30px 0px 30px;
+}
+
+.property-detail-price-wrap p {
+    font-style: italic;
+    font-size: 12px;
+    margin: 0px 30px;
+}
+
+.property-detail-price p {
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.property-details {
+    margin: 40px 0px;
+}
+
+.property-details h2 {
+    font-weight: 400;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 28px;
+    border-bottom: 1px solid black;
+}
+
+.property-details p {
+    margin: 10px;
 }
