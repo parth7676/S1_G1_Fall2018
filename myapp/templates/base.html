@@ -16,7 +16,7 @@
 <body>
 <main>
     <ul>
-        <li><div><img class="logo" src="{% static 'myapp/images/homerun_final.png' %}" /></div></li>
+        <li><div class="logo"><i class="fas fa-home" style="color: #ffffff; margin-right: 5px"></i>HOME RUN</div></li>
         <li><a {% if request.path == '/' %} class="active"{% endif %} href="{% url 'home' %}">Home</a></li>
         <li><a {% if request.path == '/searchproperty/' %} class="active"{% endif %} href="{% url 'searchproperty' %}">Search Property</a></li>
         <li><a {% if request.path == '/advertiseproperty' %} class="active"{% endif %} href="{% url 'advertiseproperty' %}">Advertise Property</a></li>
