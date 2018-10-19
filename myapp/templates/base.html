@@ -15,7 +15,7 @@
 </head>
 <body>
 <main>
-    <ul>
+    <ul class="nav">
         <li><div class="logo"><i class="fas fa-home" style="color: #ffffff; margin-right: 5px"></i>HOME RUN</div></li>
         <li><a {% if request.path == '/' %} class="active"{% endif %} href="{% url 'home' %}">Home</a></li>
         <li><a {% if request.path == '/searchproperty/' %} class="active"{% endif %} href="{% url 'searchproperty' %}">Search Property</a></li>
@@ -32,16 +32,22 @@
     <footer class="footer">
         <div class="row">
             <div class="footer-columns">
-                <h3 class="footer-title">About</h3>
-                <p class="footer-title">I am current a footer for this website</p>
+                <div class="footer-logo">
+                    <i class="fas fa-home footer-logo-marker"></i>
+                    <h2 class="footer-logo-text">HOME RUN</h2>
+                </div>
             </div>
             <div class="footer-columns">
-                <h3 class="footer-title">About</h3>
-                <p class="footer-title">I am current a footer for this website</p>
+                <ul class="footer-links">
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'searchproperty' %}">Search Property</a></li>
+                    <li><a href="{% url 'advertiseproperty' %}">Advertise Property</a></li>
+                    <li><a href="{% url 'contactus' %}">Contact</a></li>
+                    <li><a href="https://github.com/parth7676/S1_G1_Fall2018">Project Link</a></li>
+                </ul>
             </div>
             <div class="footer-columns">
-                <h3 class="footer-title">About</h3>
-                <p class="footer-title">I am current a footer for this website</p>
+                <img class="footer-uni-logo" src="{% static 'myapp/images/UW_Logo_2L_horz_wht.png'%}">
             </div>
         </div>
         <p class="footer-title">© 2018 Home Run. All Rights Reserved | Design By Group1</p>
