@@ -28,7 +28,6 @@ main {
 .template-container {
     background-color: #EEEEEE;
     margin: 40px 50px;
-    padding: 22px;
 }
 
 header {
@@ -249,9 +248,40 @@ h1, h2 {
     font-weight: bold;
 }
 
+.intro {
+    background-image: url("/static/myapp/images/bg.jpg");
+    height: 500px;
+}
+
+.hero-text {
+    text-align: center;
+    padding-top: 200px;
+}
+
+.hero-text h2 {
+    font-weight: bold;
+    font-size: 35px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.hero-text p {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 10px 0px 20px 0px;
+}
+
+.hero-text a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #000000;
+    padding: 10px 20px;
+    border-radius: 2px;
+}
+
 .recent-properties-header {
     text-align: center;
-    padding: 15px 0px;
+    padding: 40px 0px 40px 0px;
 }
 
 .recent-properties-header p {
@@ -261,7 +291,7 @@ h1, h2 {
 .property {
     float: left;
     width: 32.3%;
-    margin: 0px 2px 16px 2px;
+    margin: 16px 6px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
 }
@@ -421,6 +451,41 @@ h1, h2 {
 
 .property-details p {
     margin: 10px;
+}
+
+.property-looking-for {
+    background-color: #595959;
+    margin-top: 50px;
+}
+
+.property-looking-for-header {
+    text-align: center;
+    padding: 40px 0px 40px 0px;
+}
+
+.property-looking-for-header h2 {
+    color: #ffffff;
+}
+
+.property-looking-for-header p {
+    color: white;
+}
+
+.property-looking-for-column {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.property-looking-for-column img {
+    max-width: 250px;
+}
+
+.property-looking-for-column h5 {
+    font-weight: 100;
+    font-size: 20px;
+    margin: 10px 0px;
+    color: #ffffff;
 }
 
 .footer {

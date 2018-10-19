@@ -2,6 +2,13 @@
 {% load static %}
 
 {% block body %}
+<div class="intro">
+    <div class="hero-text">
+			<h2>find your place with our local life style</h2>
+			<p>Search real estate property records, houses, condos, land and more on Home Run®.<br>Find property info from the most comprehensive source data.</p>
+			<a href="{% url 'searchproperty'%}" class="site-btn">VIEW PROPERTIES</a>
+	</div>
+</div>
 <div class="row recent-properties-header">
     <h2>RECENT PROPERTIES</h2>
     <p>Discover how much the latest properties have been sold for</p>
@@ -92,5 +99,28 @@
             <a href="{%url 'propertydetails' %}" class="property-price">Explore Property</a>
      </div>
     </div>
-
+    <div class="property-looking-for">
+    <div class="row property-looking-for-header">
+        <h2>LOOKING PROPERTY</h2>
+        <p>What kind of property are you looking for? We will help you</p>
+    </div>
+    <div class="row">
+        <div class="property-looking-for-column">
+            <img src="{% static 'myapp/images/1.jpg' %}" alt="">
+			<h5>Apartment for rent</h5>
+        </div>
+        <div class="property-looking-for-column">
+            <img src="{% static 'myapp/images/2.jpg' %}" alt="">
+			<h5>Family Home</h5>
+        </div>
+        <div class="property-looking-for-column">
+            <img src="{% static 'myapp/images/3.jpg' %}" alt="">
+			<h5>Resort Villas</h5>
+        </div>
+        <div class="property-looking-for-column">
+         <img src="{% static 'myapp/images/3.jpg' %}" alt="">
+		 <h5>Office Building</h5>
+        </div>
+    </div>
+    </div>
 {% endblock %}
