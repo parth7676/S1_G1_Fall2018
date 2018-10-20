@@ -116,3 +116,5 @@ venv.bak/
 /include/
 /myvenv/
 /share/
+/migrations/
+/myapp/migrations/*
