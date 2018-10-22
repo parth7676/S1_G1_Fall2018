@@ -53,8 +53,8 @@ class City(models.Model):
         return self.cityName
 
     cityName = models.CharField(max_length=50)
-    countryID = models.ForeignKey(Country, on_delete=models.CASCADE)
-    provinceID = models.ForeignKey(Province, on_delete=models.CASCADE)
+    countryID = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='country')
+    provinceID = models.ForeignKey(Province, on_delete=models.CASCADE, related_name='province')
 
 
 class Property_Category(models.Model):

@@ -4,38 +4,38 @@ INSERT INTO myapp_province (provinceName,countryID_id) VALUES ('Ontario',1);
 INSERT INTO myapp_province (provinceName,countryID_id) VALUES ('British Colombia',1);
 INSERT INTO myapp_province (provinceName,countryID_id) VALUES ('Alberta',1);
 INSERT INTO myapp_province (provinceName,countryID_id) VALUES ('Quebec',1);
-INSERT INTO myapp_province (provinceName,countryID_id) VALUES ('Nova Scotia',1)
+INSERT INTO myapp_province (provinceName,countryID_id) VALUES ('Nova Scotia',1);
 
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Toronto',1,2);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Ottawa',1,2);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Brampton',1,2);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('London',1,2);
-INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Niagara Falls',1,2)
+INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Niagara Falls',1,2);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Windsor',1,2);
 
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Vancouver',1,3);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Richmond',1,3);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Victoria',1,3);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Delta',1,3);
-INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Kimberly',1,3)
+INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Kimberly',1,3);
 
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Calgary',1,4);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Edmonton',1,4);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Brooks',1,4);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Cold Lake',1,4);
-INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Red Deer',1,4)
+INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Red Deer',1,4);
 
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Quebec City',1,5);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Montreal',1,5);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Laval',1,5);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Gatineau',1,5);
-INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Chandler',1,5)
+INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Chandler',1,5);
 
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Halifax',1,6);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Wolfville',1,6);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Yarmouth',1,6);
 INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Digby',1,6);
-INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Mahone Bay',1,6)
+INSERT INTO myapp_city(cityName, countryID_id, provinceID_id) VALUES ('Mahone Bay',1,6);
 
 INSERT INTO myapp_property_category(propertyCategory) VALUES ('singleHouse');
 INSERT INTO myapp_property_category(propertyCategory) VALUES ('attachedHouse');
@@ -46,13 +46,13 @@ INSERT INTO myapp_property_category(propertyCategory) VALUES ('farm');
 INSERT INTO myapp_property_category(propertyCategory) VALUES ('factory');
 INSERT INTO myapp_property_category(propertyCategory) VALUES ('mall');
 INSERT INTO myapp_property_category(propertyCategory) VALUES ('building');
-INSERT INTO myapp_property_category(propertyCategory) VALUES ('other')
+INSERT INTO myapp_property_category(propertyCategory) VALUES ('other');
 
 INSERT INTO myapp_property_facing(propertyFacing) VALUES ('North');
 INSERT INTO myapp_property_facing(propertyFacing) VALUES ('South');
 INSERT INTO myapp_property_facing(propertyFacing) VALUES ('East');
 INSERT INTO myapp_property_facing(propertyFacing) VALUES ('West');
-INSERT INTO myapp_property_facing(propertyFacing) VALUES ('Other')
+INSERT INTO myapp_property_facing(propertyFacing) VALUES ('Other');
 
 insert into main.myapp_property_sector (id, propertySector) values (1, 'private');
 insert into main.myapp_property_sector (id, propertySector) values (2, 'residential');
