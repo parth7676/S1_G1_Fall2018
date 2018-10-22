@@ -6,7 +6,12 @@
     <div class="hero-text">
 			<h2>find your place with our local life style</h2>
 			<p>Search real estate property records, houses, condos, land and more on Home Run®.<br>Find property info from the most comprehensive source data.</p>
-			<a href="{% url 'searchproperty'%}" class="site-btn">VIEW PROPERTIES</a>
+			<div class="search">
+                <input type="text" class="searchTerm" placeholder="Search Any Neighbourhoods, City or Listing ID">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search" style="color: #E72C25"></i>
+                </button>
+            </div>
 	</div>
 </div>
 <div class="row recent-properties-header">
@@ -14,11 +19,11 @@
     <p>Discover how much the latest properties have been sold for</p>
 </div>
     <div class="row">
-     <div class="property">
+    <div class="property">
             <img src="{% static 'myapp/images/property.png' %}" alt="Avatar" class="property-image"/>
             <div class="property-text">
-                <h5>176 Kingsberry, Dr Anderson Street</h5>
-                <p> Windsor N9B 2N6 </p>
+                <h5></i>176 Kingsberry, Dr Anderson Street</h5>
+                <p></i> Windsor N9B 2N6 </p>
             </div>
             <div class="property-room-wrap-info">
                 <div class="property-room-info">

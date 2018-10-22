@@ -8,7 +8,7 @@
 }
 .logo{
     color: #ffffff;
-    background-color: #000000;
+    background-color: #1E2E5C;
     font-size: 21px;
     font-weight: bold;
     padding: 11px 20px;
@@ -16,7 +16,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     color: #000;
-    background-image: url("/static/myapp/images/background.png");
+    background-image: url("/static/myapp/images/pattern.png");
 }
 
 main {
@@ -25,9 +25,61 @@ main {
     width: 100%;
 }
 
+.search {
+    width: 50%;
+    position: relative;
+    margin: auto;
+}
+
+.searchTerm {
+    float: left;
+    width: 100%;
+    border: 3px solid #1E2E5C;
+    padding: 15px;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+    color: #1E2E5C;
+    font-size: 20px;
+}
+
+.searchTerm:focus{
+    color: #1E2E5C;
+    border-color: #E72C25;
+}
+
+.searchTerm::-webkit-input-placeholder {
+    color: #1E2E5C;
+}
+
+.searchTerm::-moz-placeholder {
+    color: #1E2E5C;
+}
+
+.searchButton {
+  position: absolute;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.searchButton:focus{
+    outline: none;
+}
+
+.searchButton:active {
+    outline: none;
+}
+
 .template-container {
-    background-color: #EEEEEE;
-    margin: 40px 50px;
+    background-color: #ffffff;
+    margin: 15px 15px;
 }
 
 header {
@@ -149,7 +201,8 @@ aside {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #e0e0e0;
+    background-color: #1E2E5C;
+    border-top: 10px solid #E72C25;
 }
 
 .nav li {
@@ -162,19 +215,19 @@ aside {
 
 .nav li a {
     display: block;
-    color: black;
+    color: #ffffff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 .nav li a:hover:not(.active) {
-    background-color: #BDBDBD;
+    background-color: #E72C25;
     color: #ffffff;
 }
 
 .active {
-    background-color: #9E9E9E;
+    background-color: #E72C25;
     color: #ffffff;
 }
 
@@ -186,8 +239,7 @@ aside {
 .service-breadcrumb {
     text-align: left;
     padding: 10px 15px;
-    background-color: #9E9E9E;
-    font-weight: bold;
+    background-color: #1E2E5C;
 }
 
 .service-breadcrumb-text {
@@ -197,6 +249,10 @@ aside {
 .about-info {
     padding: 20px 0px;
     overflow: hidden;
+}
+
+.about-info img {
+    width: 100%;
 }
 
 .about-paragraph {
@@ -255,7 +311,7 @@ h1, h2 {
 
 .hero-text {
     text-align: center;
-    padding-top: 200px;
+    padding-top: 160px;
 }
 
 .hero-text h2 {
@@ -281,7 +337,7 @@ h1, h2 {
 
 .recent-properties-header {
     text-align: center;
-    padding: 40px 0px 40px 0px;
+    padding: 70px 0px 30px 0px;
 }
 
 .recent-properties-header p {
@@ -311,18 +367,18 @@ h1, h2 {
     width: 100%;
     height: 250px;
     display: block;
-    margin-bottom: 5px;
 }
 
 .property-text {
     text-align: center;
-    padding: 0 8px;
+    padding: 10px 8px;
 }
 
 .property-text h5 {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 5px;
+    color: #1E2E5C;
 }
 
 .property-text p {
@@ -334,7 +390,7 @@ h1, h2 {
 }
 
 .property-room-info {
-    border-top: 1px solid #000000;
+    border-top: 1px solid #1E2E5C;
     padding: 15px 0px;
     overflow: hidden;
 }
@@ -349,13 +405,29 @@ h1, h2 {
     text-align: left;
 }
 
+.property-room-info .rf-right p {
+    color: #1E2E5C;
+}
+
+.property-room-info .rf-left p {
+    color: #1E2E5C;
+}
+
+.property-room-info .rf-right p i {
+    color: #1E2E5C;
+}
+
+.property-room-info .rf-left p i {
+    color: #1E2E5C;
+}
+
 .property-price {
     display: block;
     font-size: 18px;
     font-weight: 600;
     text-align: center;
     padding: 13px;
-    background: #000000;
+    background: #1E2E5C;
     color: #fff;
     text-decoration: none;
 }
@@ -454,7 +526,7 @@ h1, h2 {
 }
 
 .property-looking-for {
-    background-color: #595959;
+    background-color: #f2f2f2;
     margin-top: 50px;
 }
 
@@ -464,11 +536,11 @@ h1, h2 {
 }
 
 .property-looking-for-header h2 {
-    color: #ffffff;
+    color: #000000;
 }
 
 .property-looking-for-header p {
-    color: white;
+    color: #000000;
 }
 
 .property-looking-for-column {
@@ -485,17 +557,19 @@ h1, h2 {
     font-weight: 100;
     font-size: 20px;
     margin: 10px 0px;
-    color: #ffffff;
+    color: #000000;
 }
 
 .footer {
-    background-color: black;
+    background-color: #1E2E5C;
     text-align: center;
     padding: 50px 30px 50px 0px;
+    border-bottom: 10px solid #E72C25;
 }
 
 .footer-title {
     color:#ffffff;
+    padding-top: 40px;
 }
 
 .footer-columns {
@@ -522,7 +596,6 @@ h1, h2 {
 }
 
 .footer-links {
-    background-color: #000000;
     list-style-type: none;
     margin: 40px;
 }
