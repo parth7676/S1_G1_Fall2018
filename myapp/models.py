@@ -1,5 +1,6 @@
 from django.db import models
 from enum import Enum
+import datetime
 
 
 # Create your models here.
@@ -115,3 +116,77 @@ class Property_Images(models.Model):
     propertyImageId = models.AutoField(primary_key=True)
     propertyImage = models.ImageField(upload_to='images', max_length=255, null=True, blank=True)
     propertyImageDescription = models.CharField(max_length=255, null=True, blank=True)
+
+
+class User(models.Model):
+    def __str__(self):
+        return str(self.firstName + " " + self.lastName)
+
+    userID = models.AutoField(primary_key=True)
+    firstName = models.CharField(max_length=50, null=False)
+    lastName = models.CharField(max_length=50, null=False)
+    email = models.EmailField(max_length=30, null=False)
+
+    @property
+    def full_name(self):
+        # "Returns the person's full name."
+        return '%s %s' % (self.firstName, self.lastName)
+
+
+class Password(models.Model):
+    def __str__(self):
+        return "%s password expires by: %s, Account validity: %s" % (self.user, self.passwordMustChanged, self.userAccountExpiryDate)
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    encryptedPassword = models.CharField(max_length=255, null=False, default=False)
+    salt = models.CharField(max_length=50, null=False, default=False)
+    userAccountExpiryDate = models.DateTimeField()
+    # "Reset Password after 3 months"
+    passwordMustChanged = models.DateTimeField(default=(datetime.datetime.now()+datetime.timedelta(3*3565/12)), blank=False)
+    passwordReset = models.BooleanField(default=False, blank=False)
+
+
+class RoleCode(models.Model):
+    roleName = models.CharField(max_length=50)
+    code = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = "Role_Code"
+
+
+class UserRole (models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    role = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
+    dateAssigned = models.DateField()
+
+    class Meta:
+        unique_together = ("user", "role")
+        db_table= "User_Role"
+
+
+class RolePermission(models.Model):
+    def __str__(self):
+        return "%s can %s" % (self.code, self.sysFeature)
+
+    rolePermissionID = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=50)
+    sysFeature = models.CharField(max_length=50)
+    role = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "Role_Permission"
+
+
+class UserPermissions(models.Model):
+
+    def __str__(self):
+        return "%s can %s" % (self.code, self.sysFeature)
+
+    userPermissionID = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=50)
+    sysFeature = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "User_Permission"

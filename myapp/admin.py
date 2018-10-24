@@ -1,8 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from myapp.models import Property, Property_Category, Property_Sector, Property_Facing, Property_Images, Country, \
-    Province, City
+from myapp.models import *
 
 admin.site.register(Property)
 admin.site.register(Property_Category)
@@ -12,3 +11,9 @@ admin.site.register(Property_Images)
 admin.site.register(Country)
 admin.site.register(Province)
 admin.site.register(City)
+admin.site.register(User)
+admin.site.register(Password)
+admin.site.register(RoleCode)
+admin.site.register(RolePermission)
+admin.site.register(UserRole)
+admin.site.register(UserPermissions)
