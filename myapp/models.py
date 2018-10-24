@@ -4,7 +4,7 @@ import datetime
 
 
 # Create your models here.
-class Property_Category_Choices(Enum):
+class PropertyCategoryChoices(Enum):
     SingleHouse = 'singleHouse'
     AttachedHouse = 'attachedHouse'
     TownHouse = 'townHouse'
@@ -17,7 +17,7 @@ class Property_Category_Choices(Enum):
     Other = 'other'
 
 
-class Property_Sector_Choices(Enum):
+class PropertySectorChoices(Enum):
     Private = 'private'
     Residential = 'residential'
     Commercial = 'commercial'
@@ -26,12 +26,19 @@ class Property_Sector_Choices(Enum):
     Other = 'other'
 
 
-class Property_Facing_Choices(Enum):
+class PropertyFacingChoices(Enum):
     North = 'north'
     South = 'south'
     East = 'east'
     West = 'west'
     Other = 'other'
+
+
+class PermissionTypeChoices(Enum):
+    Read = 'read'
+    Write = 'write'
+    Update = 'update'
+    Delete = 'delete'
 
 
 class Country(models.Model):
@@ -58,29 +65,34 @@ class City(models.Model):
     provinceID = models.ForeignKey(Province, on_delete=models.CASCADE, related_name='province')
 
 
-class Property_Category(models.Model):
+class PropertyCategory(models.Model):
     def __str__(self):
         return self.propertyCategory
 
-    propertyCategory = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in Property_Category_Choices],
-                                        default=Property_Category_Choices.SingleHouse, unique=True)
+    propertyCategory = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PropertyCategoryChoices],
+                                        default=PropertyCategoryChoices.SingleHouse, unique=True)
+    class Meta:
+        db_table = 'Property_Category'
 
-
-class Property_Sector(models.Model):
+class PropertySector(models.Model):
     def __str__(self):
         return self.propertySector
 
-    propertySector = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in Property_Sector_Choices],
-                                      default=Property_Sector_Choices.Commercial,unique=True)
+    propertySector = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PropertySectorChoices],
+                                      default=PropertySectorChoices.Commercial,unique=True)
 
+    class Meta:
+        db_table = 'Property_Sector'
 
-class Property_Facing(models.Model):
+class PropertyFacing(models.Model):
     def __str__(self):
         return self.propertyFacing
 
-    propertyFacing = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in Property_Facing_Choices],
-                                      default=Property_Facing_Choices.North, unique=True)
+    propertyFacing = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PropertyFacingChoices],
+                                      default=PropertyFacingChoices.North, unique=True)
 
+    class Meta:
+        db_table = 'Property_Facing'
 
 class Property(models.Model):
     def __str__(self):
@@ -88,9 +100,9 @@ class Property(models.Model):
 
     propertyID = models.AutoField(primary_key=True)
     propertyTitle = models.CharField(max_length=50)
-    propertyCategory = models.ForeignKey(Property_Category, on_delete=models.SET_NULL, null=True)
-    propertySector = models.ForeignKey(Property_Sector, on_delete=models.SET_NULL, null=True)
-    propertyFacing = models.ForeignKey(Property_Facing, on_delete=models.SET_NULL, null=True)
+    propertyCategory = models.ForeignKey(PropertyCategory, on_delete=models.SET_NULL, null=True)
+    propertySector = models.ForeignKey(PropertySector, on_delete=models.SET_NULL, null=True)
+    propertyFacing = models.ForeignKey(PropertyFacing, on_delete=models.SET_NULL, null=True)
     propertyCountry = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
     propertyProvince = models.ForeignKey(Province, on_delete=models.SET_NULL, null=True)
     propertyCity = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
@@ -98,17 +110,17 @@ class Property(models.Model):
     propertyStreetNumber = models.CharField(max_length=10)
     propertyPostalCode = models.CharField(max_length=10)
     propertyConstructionDate = models.DateField()
-    propertyRegisterationDate = models.DateField()
+    propertyRegistrationDate = models.DateField()
     propertyNoofHalls = models.IntegerField()
     propertyNoofRooms = models.IntegerField()
     propertyNoofBathrooms = models.FloatField()
     propertyNoofFloors = models.IntegerField()
-    propertyNoofTotalArea = models.FloatField()
+    propertyTotalArea = models.FloatField()
     propertyAskingPrice = models.FloatField()
     propertySellingPrice = models.FloatField()
 
 
-class Property_Images(models.Model):
+class PropertyImages(models.Model):
     def __str__(self):
         return str(self.propertyID)+"  :  "+str(self.propertyImageId)
 
@@ -116,6 +128,9 @@ class Property_Images(models.Model):
     propertyImageId = models.AutoField(primary_key=True)
     propertyImage = models.ImageField(upload_to='images', max_length=255, null=True, blank=True)
     propertyImageDescription = models.CharField(max_length=255, null=True, blank=True)
+
+    class Meta:
+        db_table = 'Property_Images'
 
 
 class User(models.Model):
@@ -162,7 +177,12 @@ class UserRole (models.Model):
 
     class Meta:
         unique_together = ("user", "role")
-        db_table= "User_Role"
+        db_table = "User_Role"
+
+
+class PermissionType(models.Model):
+    name = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PermissionTypeChoices],
+                            default=PermissionTypeChoices.Read, unique=True)
 
 
 class RolePermission(models.Model):
@@ -170,23 +190,9 @@ class RolePermission(models.Model):
         return "%s can %s" % (self.code, self.sysFeature)
 
     rolePermissionID = models.AutoField(primary_key=True)
-    code = models.CharField(max_length=50)
     sysFeature = models.CharField(max_length=50)
-    role = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
+    code = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
+    permissions = models.ForeignKey(PermissionType, on_delete= models.SET_NULL, null=True)
 
     class Meta:
         db_table = "Role_Permission"
-
-
-class UserPermissions(models.Model):
-
-    def __str__(self):
-        return "%s can %s" % (self.code, self.sysFeature)
-
-    userPermissionID = models.AutoField(primary_key=True)
-    code = models.CharField(max_length=50)
-    sysFeature = models.CharField(max_length=50)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = "User_Permission"
