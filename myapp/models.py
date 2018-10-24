@@ -181,8 +181,15 @@ class UserRole (models.Model):
 
 
 class PermissionType(models.Model):
+
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PermissionTypeChoices],
                             default=PermissionTypeChoices.Read, unique=True)
+
+    class Meta:
+        db_table = 'Permission_Type'
 
 
 class RolePermission(models.Model):
