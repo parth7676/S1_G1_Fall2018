@@ -187,6 +187,9 @@ class Password(models.Model):
 
 
 class RoleCode(models.Model):
+    def __str__(self):
+        return self.roleName
+
     roleName = models.CharField(max_length=50)
     code = models.CharField(max_length=50)
 
@@ -195,6 +198,9 @@ class RoleCode(models.Model):
 
 
 class UserRole(models.Model):
+    def __str__(self):
+        return "%s is %s" % (self.user.full_name, self.role.code)
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     role = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
     dateAssigned = models.DateField()
@@ -218,12 +224,12 @@ class PermissionType(models.Model):
 
 class RolePermission(models.Model):
     def __str__(self):
-        return "%s can %s" % (self.code, self.sysFeature)
+        return "%s : %s" % (self.code, ', '.join([permission.name for permission in self.permissions.all()]))
 
     rolePermissionID = models.AutoField(primary_key=True)
     sysFeature = models.CharField(max_length=50)
     code = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
-    permissions = models.ForeignKey(PermissionType, on_delete=models.SET_NULL, null=True)
+    permissions = models.ManyToManyField(PermissionType)
 
     class Meta:
         db_table = "Role_Permission"
