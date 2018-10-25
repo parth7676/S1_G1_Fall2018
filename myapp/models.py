@@ -47,6 +47,9 @@ class Country(models.Model):
 
     countryName = models.CharField(max_length=50)
 
+    class Meta:
+        db_table = 'Countries'
+
 
 class Province(models.Model):
     def __str__(self):
@@ -54,6 +57,9 @@ class Province(models.Model):
 
     countryID = models.ForeignKey(Country, on_delete=models.CASCADE)
     provinceName = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'Provinces'
 
 
 class City(models.Model):
@@ -64,25 +70,32 @@ class City(models.Model):
     countryID = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='country')
     provinceID = models.ForeignKey(Province, on_delete=models.CASCADE, related_name='province')
 
+    class Meta:
+        db_table = 'Cities'
+
 
 class PropertyCategory(models.Model):
     def __str__(self):
         return self.propertyCategory
 
-    propertyCategory = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PropertyCategoryChoices],
+    propertyCategory = models.CharField(max_length=100,
+                                        choices=[(tag.value, tag.name) for tag in PropertyCategoryChoices],
                                         default=PropertyCategoryChoices.SingleHouse, unique=True)
+
     class Meta:
-        db_table = 'Property_Category'
+        db_table = 'Property_Categories'
+
 
 class PropertySector(models.Model):
     def __str__(self):
         return self.propertySector
 
     propertySector = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PropertySectorChoices],
-                                      default=PropertySectorChoices.Commercial,unique=True)
+                                      default=PropertySectorChoices.Commercial, unique=True)
 
     class Meta:
-        db_table = 'Property_Sector'
+        db_table = 'Property_Sectors'
+
 
 class PropertyFacing(models.Model):
     def __str__(self):
@@ -92,7 +105,8 @@ class PropertyFacing(models.Model):
                                       default=PropertyFacingChoices.North, unique=True)
 
     class Meta:
-        db_table = 'Property_Facing'
+        db_table = 'Property_Facings'
+
 
 class Property(models.Model):
     def __str__(self):
@@ -119,10 +133,13 @@ class Property(models.Model):
     propertyAskingPrice = models.FloatField()
     propertySellingPrice = models.FloatField()
 
+    class Meta:
+        db_table = 'Properties'
+
 
 class PropertyImages(models.Model):
     def __str__(self):
-        return str(self.propertyID)+"  :  "+str(self.propertyImageId)
+        return str(self.propertyID) + "  :  " + str(self.propertyImageId)
 
     propertyID = models.ForeignKey(Property, on_delete=models.CASCADE)
     propertyImageId = models.AutoField(primary_key=True)
@@ -147,18 +164,26 @@ class User(models.Model):
         # "Returns the person's full name."
         return '%s %s' % (self.firstName, self.lastName)
 
+    class Meta:
+        db_table = 'Users'
+
 
 class Password(models.Model):
     def __str__(self):
-        return "%s password expires by: %s, Account validity: %s" % (self.user, self.passwordMustChanged, self.userAccountExpiryDate)
+        return "%s password expires by: %s, Account validity: %s" % (
+        self.user, self.passwordMustChanged, self.userAccountExpiryDate)
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     encryptedPassword = models.CharField(max_length=255, null=False, default=False)
     salt = models.CharField(max_length=50, null=False, default=False)
     userAccountExpiryDate = models.DateTimeField()
     # "Reset Password after 3 months"
-    passwordMustChanged = models.DateTimeField(default=(datetime.datetime.now()+datetime.timedelta(3*3565/12)), blank=False)
+    passwordMustChanged = models.DateTimeField(default=(datetime.datetime.now() + datetime.timedelta(3 * 3565 / 12)),
+                                               blank=False)
     passwordReset = models.BooleanField(default=False, blank=False)
+
+    class Meta:
+        db_table = 'Passwords'
 
 
 class RoleCode(models.Model):
@@ -169,8 +194,7 @@ class RoleCode(models.Model):
         db_table = "Role_Code"
 
 
-class UserRole (models.Model):
-
+class UserRole(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     role = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
     dateAssigned = models.DateField()
@@ -199,7 +223,7 @@ class RolePermission(models.Model):
     rolePermissionID = models.AutoField(primary_key=True)
     sysFeature = models.CharField(max_length=50)
     code = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
-    permissions = models.ForeignKey(PermissionType, on_delete= models.SET_NULL, null=True)
+    permissions = models.ForeignKey(PermissionType, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table = "Role_Permission"
