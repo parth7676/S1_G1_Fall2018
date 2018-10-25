@@ -50,6 +50,9 @@ class Country(models.Model):
     class Meta:
         db_table = 'Country'
 
+    class Meta:
+        db_table = 'Countries'
+
 
 class Province(models.Model):
     def __str__(self):
@@ -59,7 +62,7 @@ class Province(models.Model):
     provinceName = models.CharField(max_length=50)
 
     class Meta:
-        db_table = 'Province'
+        db_table = 'Provinces'
 
 
 class City(models.Model):
@@ -73,16 +76,21 @@ class City(models.Model):
     class Meta:
         db_table = 'City'
 
+    class Meta:
+        db_table = 'Cities'
+
 
 class PropertyCategory(models.Model):
     def __str__(self):
         return self.propertyCategory
 
-    propertyCategory = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PropertyCategoryChoices],
+    propertyCategory = models.CharField(max_length=100,
+                                        choices=[(tag.value, tag.name) for tag in PropertyCategoryChoices],
                                         default=PropertyCategoryChoices.SingleHouse, unique=True)
 
     class Meta:
-        db_table = 'Property_Category'
+        db_table = 'Property_Categories'
+
 
 
 class PropertySector(models.Model):
@@ -90,10 +98,11 @@ class PropertySector(models.Model):
         return self.propertySector
 
     propertySector = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PropertySectorChoices],
-                                      default=PropertySectorChoices.Commercial,unique=True)
+                                      default=PropertySectorChoices.Commercial, unique=True)
 
     class Meta:
-        db_table = 'Property_Sector'
+        db_table = 'Property_Sectors'
+
 
 
 class PropertyFacing(models.Model):
@@ -104,7 +113,8 @@ class PropertyFacing(models.Model):
                                       default=PropertyFacingChoices.North, unique=True)
 
     class Meta:
-        db_table = 'Property_Facing'
+        db_table = 'Property_Facings'
+
 
 
 class Property(models.Model):
@@ -133,12 +143,12 @@ class Property(models.Model):
     propertySellingPrice = models.FloatField()
 
     class Meta:
-        db_table = 'Property'
+        db_table = 'Properties'
 
 
 class PropertyImages(models.Model):
     def __str__(self):
-        return str(self.propertyID)+"  :  "+str(self.propertyImageId)
+        return str(self.propertyID) + "  :  " + str(self.propertyImageId)
 
     propertyImageId = models.AutoField(primary_key=True)
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
@@ -164,26 +174,31 @@ class User(models.Model):
         return '%s %s' % (self.firstName, self.lastName)
 
     class Meta:
-        db_table = 'User'
+        db_table = 'Users'
 
 
 class Password(models.Model):
     def __str__(self):
-        return "%s password expires by: %s, Account validity: %s" % (self.user, self.passwordMustChanged, self.userAccountExpiryDate)
+        return "%s password expires by: %s, Account validity: %s" % (
+        self.user, self.passwordMustChanged, self.userAccountExpiryDate)
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     encryptedPassword = models.CharField(max_length=255, null=False, default=False)
     salt = models.CharField(max_length=50, null=False, default=False)
     userAccountExpiryDate = models.DateTimeField()
     # "Reset Password after 3 months"
-    passwordMustChanged = models.DateTimeField(default=(datetime.datetime.now()+datetime.timedelta(3*3565/12)), blank=False)
+    passwordMustChanged = models.DateTimeField(default=(datetime.datetime.now() + datetime.timedelta(3 * 3565 / 12)),
+                                               blank=False)
     passwordReset = models.BooleanField(default=False, blank=False)
 
     class Meta:
-        db_table = 'Password'
+        db_table = 'Passwords'
 
 
 class RoleCode(models.Model):
+    def __str__(self):
+        return self.roleName
+
     roleName = models.CharField(max_length=50)
     code = models.CharField(max_length=50)
 
@@ -191,7 +206,9 @@ class RoleCode(models.Model):
         db_table = "Role_Code"
 
 
-class UserRole (models.Model):
+class UserRole(models.Model):
+    def __str__(self):
+        return "%s is %s" % (self.user.full_name, self.role.code)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     role = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
@@ -216,12 +233,12 @@ class PermissionType(models.Model):
 
 class RolePermission(models.Model):
     def __str__(self):
-        return "%s can %s" % (self.code, self.sysFeature)
+        return "%s : %s" % (self.code, ', '.join([permission.name for permission in self.permissions.all()]))
 
     rolePermissionID = models.AutoField(primary_key=True)
     sysFeature = models.CharField(max_length=50)
     code = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
-    permissions = models.ForeignKey(PermissionType, on_delete=models.SET_NULL, null=True)
+    permissions = models.ManyToManyField(PermissionType)
 
     class Meta:
         db_table = "Role_Permission"
