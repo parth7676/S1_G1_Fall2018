@@ -48,9 +48,6 @@ class Country(models.Model):
     countryName = models.CharField(max_length=50, unique=True)
 
     class Meta:
-        db_table = 'Country'
-
-    class Meta:
         db_table = 'Countries'
 
 
@@ -74,9 +71,6 @@ class City(models.Model):
     province = models.ForeignKey(Province, on_delete=models.CASCADE, related_name='province')
 
     class Meta:
-        db_table = 'City'
-
-    class Meta:
         db_table = 'Cities'
 
 
@@ -92,7 +86,6 @@ class PropertyCategory(models.Model):
         db_table = 'Property_Categories'
 
 
-
 class PropertySector(models.Model):
     def __str__(self):
         return self.propertySector
@@ -104,7 +97,6 @@ class PropertySector(models.Model):
         db_table = 'Property_Sectors'
 
 
-
 class PropertyFacing(models.Model):
     def __str__(self):
         return self.propertyFacing
@@ -114,7 +106,6 @@ class PropertyFacing(models.Model):
 
     class Meta:
         db_table = 'Property_Facings'
-
 
 
 class Property(models.Model):
@@ -148,7 +139,7 @@ class Property(models.Model):
 
 class PropertyImages(models.Model):
     def __str__(self):
-        return str(self.propertyID) + "  :  " + str(self.propertyImageId)
+        return str(self.property) + "  :  " + str(self.propertyImageId)
 
     propertyImageId = models.AutoField(primary_key=True)
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
@@ -180,7 +171,7 @@ class User(models.Model):
 class Password(models.Model):
     def __str__(self):
         return "%s password expires by: %s, Account validity: %s" % (
-        self.user, self.passwordMustChanged, self.userAccountExpiryDate)
+            self.user, self.passwordMustChanged, self.userAccountExpiryDate)
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     encryptedPassword = models.CharField(max_length=255, null=False, default=False)

@@ -1,41 +1,41 @@
 INSERT INTO Countries(countryName) VALUES ('Canada');
 
-INSERT INTO Provinces (provinceName,countryID_id) VALUES ('Ontario',1);
-INSERT INTO Provinces (provinceName,countryID_id) VALUES ('British Colombia',1);
-INSERT INTO Provinces (provinceName,countryID_id) VALUES ('Alberta',1);
-INSERT INTO Provinces (provinceName,countryID_id) VALUES ('Quebec',1);
-INSERT INTO Provinces (provinceName,countryID_id) VALUES ('Nova Scotia',1);
+INSERT INTO Provinces (provinceName,country_id) VALUES ('Ontario',1);
+INSERT INTO Provinces (provinceName,country_id) VALUES ('British Colombia',1);
+INSERT INTO Provinces (provinceName,country_id) VALUES ('Alberta',1);
+INSERT INTO Provinces (provinceName,country_id) VALUES ('Quebec',1);
+INSERT INTO Provinces (provinceName,country_id) VALUES ('Nova Scotia',1);
 
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Toronto',1,2);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Ottawa',1,2);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Brampton',1,2);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('London',1,2);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Niagara Falls',1,2);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Windsor',1,2);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Toronto',1,2);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Ottawa',1,2);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Brampton',1,2);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('London',1,2);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Niagara Falls',1,2);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Windsor',1,2);
 
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Vancouver',1,3);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Richmond',1,3);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Victoria',1,3);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Delta',1,3);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Kimberly',1,3);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Vancouver',1,3);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Richmond',1,3);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Victoria',1,3);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Delta',1,3);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Kimberly',1,3);
 
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Calgary',1,4);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Edmonton',1,4);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Brooks',1,4);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Cold Lake',1,4);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Red Deer',1,4);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Calgary',1,4);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Edmonton',1,4);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Brooks',1,4);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Cold Lake',1,4);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Red Deer',1,4);
 
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Quebec City',1,5);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Montreal',1,5);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Laval',1,5);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Gatineau',1,5);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Chandler',1,5);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Quebec City',1,5);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Montreal',1,5);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Laval',1,5);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Gatineau',1,5);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Chandler',1,5);
 
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Halifax',1,6);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Wolfville',1,6);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Yarmouth',1,6);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Digby',1,6);
-INSERT INTO Cities(cityName, countryID_id, provinceID_id) VALUES ('Mahone Bay',1,6);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Halifax',1,6);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Wolfville',1,6);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Yarmouth',1,6);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Digby',1,6);
+INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Mahone Bay',1,6);
 
 INSERT INTO Property_Categories(propertyCategory) VALUES ('singleHouse');
 INSERT INTO Property_Categories(propertyCategory) VALUES ('attachedHouse');
