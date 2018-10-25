@@ -17,12 +17,12 @@
 <main>
     <ul class="nav">
         <li><div class="logo"><i class="fas fa-home" style="color: #ffffff; margin-right: 5px"></i>HOME RUN</div></li>
-        <li><a {% if request.path == '/' %} class="active"{% endif %} href="{% url 'home' %}">Home</a></li>
-        <li><a {% if request.path == '/searchproperty/' %} class="active"{% endif %} href="{% url 'searchproperty' %}">Search Property</a></li>
-        <li><a {% if request.path == '/advertiseproperty' %} class="active"{% endif %} href="{% url 'advertiseproperty' %}">Advertise Property</a></li>
+        <li><a {%if request.path == '/' %} class="active"{% endif %} href="{% url 'home' %}">Home</a></li>
+        <li><a {% if request.path == '/search-property/' %} class="active"{% endif %} href="{% url 'search-property' %}">Search Property</a></li>
+        <li><a {% if request.path == '/advertise-property/' %} class="active"{% endif %} href="{% url 'advertise-property' %}">Advertise Property</a></li>
         <li><a {% if request.path == '/about/' %}class="active"{% endif %} href="{% url 'about' %}">About</a></li>
-        <li><a {% if request.path == '/contactus/' %}class="active"{% endif %} href="{% url 'contactus' %}">Contact</a></li>
-        <li style="float:right"><a {% if request.path == '/signin/' %}class="active"{% endif %} href="{% url 'signin' %}">Sign In</a></li>
+        <li><a {% if request.path == '/contact/' %}class="active"{% endif %} href="{% url 'contact' %}">Contact</a></li>
+        <li style="float:right"><a {% if request.path == '/login/' %}class="active"{% endif %} href="{% url 'login' %}">Sign In</a></li>
         <li style="float:right"><a {% if request.path == '/register/' %}class="active"{% endif %} href="{% url 'register' %}">Register</a></li>
     </ul>
     <div class="template-container">
@@ -40,9 +40,9 @@
             <div class="footer-columns">
                 <ul class="footer-links">
                     <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'searchproperty' %}">Search Property</a></li>
-                    <li><a href="{% url 'advertiseproperty' %}">Advertise Property</a></li>
-                    <li><a href="{% url 'contactus' %}">Contact</a></li>
+                    <li><a href="{% url 'search-property' %}">Search Property</a></li>
+                    <li><a href="{% url 'advertise-property' %}">Advertise Property</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                     <li><a href="https://github.com/parth7676/S1_G1_Fall2018">Project Link</a></li>
                 </ul>
             </div>

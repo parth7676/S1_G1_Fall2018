@@ -45,15 +45,21 @@ class Country(models.Model):
     def __str__(self):
         return self.countryName
 
-    countryName = models.CharField(max_length=50)
+    countryName = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        db_table = 'Country'
 
 
 class Province(models.Model):
     def __str__(self):
         return self.provinceName
 
-    countryID = models.ForeignKey(Country, on_delete=models.CASCADE)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
     provinceName = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'Province'
 
 
 class City(models.Model):
@@ -61,8 +67,11 @@ class City(models.Model):
         return self.cityName
 
     cityName = models.CharField(max_length=50)
-    countryID = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='country')
-    provinceID = models.ForeignKey(Province, on_delete=models.CASCADE, related_name='province')
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='country')
+    province = models.ForeignKey(Province, on_delete=models.CASCADE, related_name='province')
+
+    class Meta:
+        db_table = 'City'
 
 
 class PropertyCategory(models.Model):
@@ -71,8 +80,10 @@ class PropertyCategory(models.Model):
 
     propertyCategory = models.CharField(max_length=100, choices=[(tag.value, tag.name) for tag in PropertyCategoryChoices],
                                         default=PropertyCategoryChoices.SingleHouse, unique=True)
+
     class Meta:
         db_table = 'Property_Category'
+
 
 class PropertySector(models.Model):
     def __str__(self):
@@ -84,6 +95,7 @@ class PropertySector(models.Model):
     class Meta:
         db_table = 'Property_Sector'
 
+
 class PropertyFacing(models.Model):
     def __str__(self):
         return self.propertyFacing
@@ -93,6 +105,7 @@ class PropertyFacing(models.Model):
 
     class Meta:
         db_table = 'Property_Facing'
+
 
 class Property(models.Model):
     def __str__(self):
@@ -119,13 +132,16 @@ class Property(models.Model):
     propertyAskingPrice = models.FloatField()
     propertySellingPrice = models.FloatField()
 
+    class Meta:
+        db_table = 'Property'
+
 
 class PropertyImages(models.Model):
     def __str__(self):
         return str(self.propertyID)+"  :  "+str(self.propertyImageId)
 
-    propertyID = models.ForeignKey(Property, on_delete=models.CASCADE)
     propertyImageId = models.AutoField(primary_key=True)
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
     propertyImage = models.ImageField(upload_to='images', max_length=255, null=True, blank=True)
     propertyImageDescription = models.CharField(max_length=255, null=True, blank=True)
 
@@ -147,6 +163,9 @@ class User(models.Model):
         # "Returns the person's full name."
         return '%s %s' % (self.firstName, self.lastName)
 
+    class Meta:
+        db_table = 'User'
+
 
 class Password(models.Model):
     def __str__(self):
@@ -159,6 +178,9 @@ class Password(models.Model):
     # "Reset Password after 3 months"
     passwordMustChanged = models.DateTimeField(default=(datetime.datetime.now()+datetime.timedelta(3*3565/12)), blank=False)
     passwordReset = models.BooleanField(default=False, blank=False)
+
+    class Meta:
+        db_table = 'Password'
 
 
 class RoleCode(models.Model):
@@ -199,7 +221,7 @@ class RolePermission(models.Model):
     rolePermissionID = models.AutoField(primary_key=True)
     sysFeature = models.CharField(max_length=50)
     code = models.ForeignKey(RoleCode, on_delete=models.CASCADE)
-    permissions = models.ForeignKey(PermissionType, on_delete= models.SET_NULL, null=True)
+    permissions = models.ForeignKey(PermissionType, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table = "Role_Permission"
