@@ -29,7 +29,7 @@ def sign_in(request):
     return render(request, 'login.html')
 
 
-def property_details(request):
+def property_details(request, propertyID):
     return render(request, 'propertydetails.html')
 
 
