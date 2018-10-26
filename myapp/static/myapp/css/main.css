@@ -380,6 +380,10 @@ h1, h2 {
     font-weight: 400;
     margin-bottom: 5px;
     color: #1E2E5C;
+    width: 380px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .property-text p {
@@ -613,4 +617,26 @@ h1, h2 {
 .footer-uni-logo {
     width: 300px;
     padding: 40px 0px;
+}
+
+.pagination {
+    align-items: center;
+	margin: 30px 0px;
+	padding: 0 25px;
+    text-align: center;
+}
+
+.step-links a,.current  {
+    text-decoration: none;
+    border: 1px solid #1E2E5C;
+    color: #1E2E5C;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0px 5px;
+    font-weight: bold;
+}
+
+.step-links a:hover {
+    color: #E72C25;
+    border-color: #E72C25;
 }

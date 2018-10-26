@@ -1,12 +1,56 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block body %}
-    <header style="overflow: hidden;">
-        <article>
-            <h1>Home Run</h1>
-            <h2 style="margin-bottom: 10px">We are currently under construction!!</h2>
-            {% load static %}<img src="{% static 'myapp/images/underconstruction.jpg' %}">
+    <div class="row">
+    {% for property in properties%}
+        <div class="property">
+            <img src="{% static 'myapp/images/property.png' %}" alt="Avatar" class="property-image"/>
+            <div class="property-text">
+                <h5></i>{{property.propertyTitle}}</h5>
+                <p></i> {{property.propertyCity}} {{property.propertyPostalCode}} </p>
+            </div>
+            <div class="property-room-wrap-info">
+                <div class="property-room-info">
+                    <div class="rf-left">
+				    	<p><i class="fa fa-th-large"></i> {{property.propertyTotalArea}} foot<sup>2</sup></p>
+					    <p><i class="fa fa-bed"></i> {{property.propertyNoofHalls}} Halls</p>
+				    </div>
+				    <div class="rf-right">
+					    <p><i class="fa fa-bed"></i> {{property.propertyNoofRooms}} Rooms</p>
+						<p><i class="fa fa-bath"></i> {{property.propertyNoofBathrooms}} Bathrooms</p>
+					</div>
+                </div>
+                <div class="property-room-info">
+                    <div class="rf-left">
+						<p><i class="fa fa-user"></i> Tony Holland</p>
+					</div>
+					<div class="rf-right">
+					    <p><i class="fa fa-clock"></i> 1 days ago</p>
+					</div>
+                </div>
+            </div>
+            <a href="{%url 'property-details' property.propertyID %}" class="property-price">Explore Property</a>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="row">
+        <div class="pagination">
+            <span class="step-links">
+                {% if properties.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ properties.previous_page_number }}">previous</a>
+                {% endif %}
 
-        </article>
-    </header>
+                <span class="current">
+                    Page {{ properties.number }} of {{ properties.paginator.num_pages }}
+                </span>
+
+                {% if properties.has_next %}
+                    <a href="?page={{ properties.next_page_number }}">next</a>
+                    <a href="?page={{ properties.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
 {% endblock %}

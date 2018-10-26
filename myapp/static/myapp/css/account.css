@@ -1,0 +1,158 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+tr {
+    border-top: 1px solid #f4f4f4;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    vertical-align: top;
+    clear: both;
+}
+
+.table-actions {
+    list-style-type: none;
+    float: left;
+    margin: 0px;
+    padding: 0px
+}
+
+.table-actions li {
+    display: inline-block;
+    padding: 0px 2px;
+}
+
+.table-actions li a {
+    color: #1E2E5C;
+}
+
+.table-actions li a:hover {
+    color: #E72C25;
+}
+
+.sidebar {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1E2E5C;
+    padding-top: 20px;
+}
+
+.sidebar a {
+  padding: 10px 8px 10px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: #E72C25;
+}
+
+.active {
+    background-color: #E72C25;
+    color: #ffffff;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+    height: 100vh;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+.logo {
+    color: #ffffff;
+    background-color: #1E2E5C;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 0px 10px 15px 10px;
+}
+
+.menu {
+    height: 100%;
+    border-left: 10px solid #E72C25;
+    width: 160px;
+}
+
+.content-wrapper {
+    background-color: #ECEFF4;
+}
+.content-header {
+    padding: 15px 15px 0px 15px
+}
+
+.content-header h1{
+    font-weight: 500;
+}
+
+.breadcrumb {
+    float:right;
+    background:transparent;
+    margin-top:0;
+    margin-bottom:0;
+    font-size:12px;
+    padding:7px 20px;
+    position:absolute;
+    top:15px;
+    right:10px;
+    border-radius:2px
+}
+
+.breadcrumb li {
+    display: inline-block;
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.breadcrumb li + li::before {
+    padding: 0px 5px;
+    color: #CCCCCC;
+    content: "/\00a0";
+}
+
+.content {
+    position: relative;
+    padding: 15px;
+}
+
+.box {
+    border-radius: 3px;
+    border-top: 3px solid #d2d6de;
+    background-color: #ffffff;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Home Run | Real Estate </title>
+    <link type="text/css" rel="stylesheet" href="{% static 'myapp/css/account.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="sidebar">
+            <div class="logo"><i class="fas fa-home" style="color: #ffffff; margin-right: 5px"></i>HOME RUN</div>
+            <div class="menu">
+                <a {%if request.path == '/account/' %} class="active"{% endif %} href="{% url 'account' %}"><i class="fas fa-home"></i> Home</a>
+                <a {%if request.path == '/users/' %} class="active"{% endif %} href="{% url 'users' %}"><i class="fas fa-users"></i> Users</a>
+                <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+
+        <div class="main">
+                {% block account %}
+                {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
