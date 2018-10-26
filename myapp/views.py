@@ -32,6 +32,13 @@ def sign_in(request):
 def property_details(request, propertyID):
     return render(request, 'propertydetails.html')
 
+# class PropertyDetail(generic.DetailView):
+#     template_name = 'searchproperty.html'
+#     context_object_name = 'detail'
+#
+#     def get_queryset(self):
+
+
 
 def account(request):
     return render(request, 'account/accountBase.html')
