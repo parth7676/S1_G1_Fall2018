@@ -3,6 +3,7 @@
 
 {% block title%}Search Property | Home Run{% endblock %}
 {% block body %}
+
     {%  if properties %}
      <div class="row">
     {% for property in properties%}
@@ -36,7 +37,7 @@
         </div>
     {% endfor %}
     </div>
-      <div class="row">
+     <div class="row">
         <div class="pagination">
             <span class="step-links">
                 {% if properties.has_previous %}
@@ -59,10 +60,9 @@
 
     {%  if not properties %}
         <div class="row">
-            <div>
-                 <h1 class="noprop">Oops, No Properties Found :( </h1>
-                 <img src="{% static 'myapp/images/prop.png' %}" class="center"/>
-
+            <div class="no-property">
+                 <h1>Oops, No Properties Found :( </h1>
+                 <img src="{% static 'myapp/images/prop.png' %}"/>
             </div>
          </div>
     {%  endif %}

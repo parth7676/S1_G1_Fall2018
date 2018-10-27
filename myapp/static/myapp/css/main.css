@@ -641,13 +641,14 @@ h1, h2 {
     border-color: #E72C25;
 }
 
-/*if no propery found in Searchprop*/
-.noprop{
-  text-align: center;
-    margin-top: 50px;
+/*if no properties found in Search property page*/
+.no-property {
+    text-align: center;
+    min-height: 488px;
+    padding: 100px;
 }
-.center {
+
+.no-property img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto;
 }
