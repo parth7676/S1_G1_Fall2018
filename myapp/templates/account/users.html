@@ -46,7 +46,7 @@
                             <td>{{ user.lastName }}</td>
                             <td>{{ user.email }}</td>
                             <td>
-                                <form action="/users/activate" method="post">
+                                <form action="/users/activate/" method="post">
                                     {% csrf_token %}
                                     {% if user.isActive %}
                                         <input type="hidden" value="{{ user.userID }}" name="user_id"/>
