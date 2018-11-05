@@ -36,10 +36,28 @@
                         {% for user in users %}
                         <tr>
                             <td>{{ user.userID }}</td>
-                            <td>{{ user.firstName }}</td>
+                            <td>{{ user.firstName }}
+                                {% if user.isActive %}
+                                    <button class="btn-success">Active</button>
+                                {% else %}
+                                    <button class="btn-danger">Disabled</button>
+                                {% endif %}
+                            </td>
                             <td>{{ user.lastName }}</td>
                             <td>{{ user.email }}</td>
                             <td>
+                                <form action="/users/activate" method="post">
+                                    {% csrf_token %}
+                                    {% if user.isActive %}
+                                        <input type="hidden" value="{{ user.userID }}" name="user_id"/>
+                                        <input type="hidden" value="0" name="status" />
+                                        <button class="btn-default">Disable</button>
+                                    {% else %}
+                                        <input type="hidden" value="{{ user.userID }}" name="user_id"/>
+                                        <input type="hidden" value="1" name="status">
+                                        <button class="btn-default">Enable</button>
+                                    {% endif %}
+                                </form>
                             </td>
                             <td>
                                 <ul class="table-actions">

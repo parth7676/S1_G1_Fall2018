@@ -189,3 +189,24 @@ th, td {
     border-top: 3px solid #d2d6de;
     background-color: #ffffff;
 }
+
+.btn-success {
+    background-color: green;
+    border: green 1px;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.btn-default {
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.btn-danger {
+    background-color: red;
+    border: red 1px;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+}
