@@ -1,41 +1,37 @@
 INSERT INTO Countries(countryName) VALUES ('Canada');
 
-INSERT INTO Provinces (provinceName,country_id) VALUES ('Ontario',1);
-INSERT INTO Provinces (provinceName,country_id) VALUES ('British Colombia',1);
-INSERT INTO Provinces (provinceName,country_id) VALUES ('Alberta',1);
-INSERT INTO Provinces (provinceName,country_id) VALUES ('Quebec',1);
-INSERT INTO Provinces (provinceName,country_id) VALUES ('Nova Scotia',1);
+INSERT INTO Provinces (id, provinceName, countryID_id) VALUES (1, 'Ontario', 1);
+INSERT INTO Provinces (id, provinceName, countryID_id) VALUES (2, 'British Colombia', 1);
+INSERT INTO Provinces (id, provinceName, countryID_id) VALUES (3, 'Alberta', 1);
+INSERT INTO Provinces (id, provinceName, countryID_id) VALUES (4, 'Quebec', 1);
+INSERT INTO Provinces (id, provinceName, countryID_id) VALUES (5, 'Nova Scotia', 1);
 
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Toronto',1,2);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Ottawa',1,2);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Brampton',1,2);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('London',1,2);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Niagara Falls',1,2);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Windsor',1,2);
-
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Vancouver',1,3);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Richmond',1,3);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Victoria',1,3);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Delta',1,3);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Kimberly',1,3);
-
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Calgary',1,4);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Edmonton',1,4);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Brooks',1,4);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Cold Lake',1,4);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Red Deer',1,4);
-
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Quebec City',1,5);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Montreal',1,5);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Laval',1,5);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Gatineau',1,5);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Chandler',1,5);
-
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Halifax',1,6);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Wolfville',1,6);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Yarmouth',1,6);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Digby',1,6);
-INSERT INTO Cities(cityName, country_id, province_id) VALUES ('Mahone Bay',1,6);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (1, 'Toronto', 1, 2);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (2, 'Ottawa', 1, 2);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (3, 'Brampton', 1, 2);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (4, 'London', 1, 2);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (5, 'Niagara Falls', 1, 2);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (6, 'Windsor', 1, 2);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (7, 'Vancouver', 1, 3);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (8, 'Richmond', 1, 3);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (9, 'Victoria', 1, 3);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (10, 'Delta', 1, 3);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (11, 'Kimberly', 1, 3);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (12, 'Calgary', 1, 4);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (13, 'Edmonton', 1, 4);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (14, 'Brooks', 1, 4);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (15, 'Cold Lake', 1, 4);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (16, 'Red Deer', 1, 4);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (17, 'Quebec City', 1, 5);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (18, 'Montreal', 1, 5);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (19, 'Laval', 1, 5);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (20, 'Gatineau', 1, 5);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (21, 'Chandler', 1, 5);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (22, 'Halifax', 1, 6);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (23, 'Wolfville', 1, 6);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (24, 'Yarmouth', 1, 6);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (25, 'Digby', 1, 6);
+INSERT INTO Cities (id, cityName, countryID_id, provinceID_id) VALUES (26, 'Mahone Bay', 1, 6);
 
 INSERT INTO Property_Categories(propertyCategory) VALUES ('singleHouse');
 INSERT INTO Property_Categories(propertyCategory) VALUES ('attachedHouse');
@@ -76,3 +72,10 @@ insert into main.Properties (propertyID, propertyTitle, propertyStreet, property
 insert into main.Properties (propertyID, propertyTitle, propertyStreet, propertyStreetNumber, propertyPostalCode, propertyConstructionDate, propertyRegistrationDate, propertyNoofHalls, propertyNoofRooms, propertyNoofBathrooms, propertyNoofFloors, propertyTotalArea, propertyAskingPrice, propertySellingPrice, propertyCategory_id, propertyCity_id, propertyCountry_id, propertyFacing_id, propertyProvince_id, propertySector_id) values (13, '2309,150 Park Street West', '150 Park Street West', 2309, 'N9A4K8', '2006-11-05', '2006-12-13', 1, 4, 2, 23, 13000, 600000, 550000, 4, 22, 1, 4, 2, 2);
 insert into main.Properties (propertyID, propertyTitle, propertyStreet, propertyStreetNumber, propertyPostalCode, propertyConstructionDate, propertyRegistrationDate, propertyNoofHalls, propertyNoofRooms, propertyNoofBathrooms, propertyNoofFloors, propertyTotalArea, propertyAskingPrice, propertySellingPrice, propertyCategory_id, propertyCity_id, propertyCountry_id, propertyFacing_id, propertyProvince_id, propertySector_id) values (14, '44 Sowthwell Dr', 'Sowthwell Dr', 44, 'M3B29N', '2008-05-13', '2008-11-28', 2, 5, 3, 2, 1500, 300000, 280000, 1, 1, 1, 1, 2, 2);
 insert into main.Properties (propertyID, propertyTitle, propertyStreet, propertyStreetNumber, propertyPostalCode, propertyConstructionDate, propertyRegistrationDate, propertyNoofHalls, propertyNoofRooms, propertyNoofBathrooms, propertyNoofFloors, propertyTotalArea, propertyAskingPrice, propertySellingPrice, propertyCategory_id, propertyCity_id, propertyCountry_id, propertyFacing_id, propertyProvince_id, propertySector_id) values (15, '154 Hamilton Street', 'Hamilton Street', 154, 'M4M2C8', '2013-11-11', '2013-10-10', 1, 3, 2, 11, 1550, 200000, 220000, 4, 1, 1, 2, 2, 2);
+
+INSERT INTO Role_Code (id, roleName, code) VALUES (1, 'uploader', 'PROPERTY_UPLOADER');
+INSERT INTO Role_Code (id, roleName, code) VALUES (2, 'verifier', 'PROPERTY_VERIFIER');
+INSERT INTO Role_Permission (rolePermissionID, sysFeature, code_id) VALUES (1, 'Uploads the properties to the system', 1);
+INSERT INTO Role_Permission (rolePermissionID, sysFeature, code_id) VALUES (2, 'verifies the properties that are posted.', 2);
+
+INSERT INTO User_Role (id, dateAssigned, role_id, user_id) VALUES (1, '2018-10-25', 1, 1);
