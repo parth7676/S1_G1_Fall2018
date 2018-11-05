@@ -155,9 +155,10 @@ class User(models.Model):
         return str(self.firstName + " " + self.lastName)
 
     userID = models.AutoField(primary_key=True)
-    firstName = models.CharField(max_length=50, null=False )
+    firstName = models.CharField(max_length=50, null=False)
     lastName = models.CharField(max_length=50, null=False)
     email = models.EmailField(max_length=30, null=False)
+    isActive = models.BooleanField(null=False, default=True)
 
     @property
     def full_name(self):

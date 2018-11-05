@@ -1,6 +1,6 @@
 from django.urls import path
-from myapp import views
+from myapp.partials import roles
 
 routes = [
-    path('roles/', views.RolesListView.as_view(), name='roles')
+    path('roles/', roles.RolesListView.as_view(), name='roles')
 ]

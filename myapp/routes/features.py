@@ -1,7 +1,7 @@
 from django.urls import path
-from myapp import views
+from myapp.partials import features
 
 routes = [
-    path('features/', views.FeaturesListView.as_view(), name='features')
+    path('features/', features.FeaturesListView.as_view(), name='features')
 ]
 
