@@ -13,5 +13,7 @@ urlPatterns = [
     path('account/', views.account, name='account'),
     path('users/', views.UsersView.as_view(), name='users'),
     path('features/', views.FeaturesListView.as_view(), name='features'),
-    path('roles/', views.RolesListView.as_view(), name='roles')
+    path('roles/', views.RolesListView.as_view(), name='roles'),
+    path('role/add', views.role_create_view, name='add-role'),
+    re_path(r'^role/edit/(?P<role_id>[0-9]+)/$', views.role_update_view, name='update-role')
 ]

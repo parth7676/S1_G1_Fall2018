@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from myapp.models import *
 from django.core.paginator import Paginator
 from django.views.generic import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
+from .forms import *
 
 
 # Create your views here.
@@ -91,6 +92,33 @@ class RolesListView(generic.ListView):
 
     def get_queryset(self):
         return RoleCode.objects.all()
+
+
+def role_create_view(request):
+    form = RoleForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('roles')
+
+    context = {
+        'form': form,
+        'isEdit': False
+    }
+    return render(request, 'account/role_add.html', context)
+
+
+def role_update_view(request, role_id):
+    role = RoleCode.objects.get(id=role_id)
+    form = RoleForm(request.POST or None, instance=role)
+    if form.is_valid():
+        form.save()
+        return redirect('roles')
+
+    context = {
+        'form': form,
+        'isEdit': True
+    }
+    return render(request, 'account/role_add.html', context)
 
 
 class RoleDelete(DeleteView):

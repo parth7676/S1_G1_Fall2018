@@ -3,6 +3,7 @@
 {% block account %}
     <section class="content-header">
         <h1>Roles</h1>
+        <a href="{% url 'add-role' %}" class="add-new-button"><i class="fas fa-plus"></i> Add New</a>
         <ol class="breadcrumb">
         <li><a href="{% url 'account'%}"><i class="fas fa-tachometer-alt"></i> Home</a></li>
         <li><a href="#">Roles</a></li>
@@ -36,8 +37,7 @@
                             <td>{{ role.code }}</td>
                             <td>
                                 <ul class="table-actions">
-                                    <li><a href="#"><i class="fas fa-info-circle"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-user-edit"></i></a></li>
+                                    <li><a href="{% url 'update-role' role.id %}"><i class="fas fa-edit"></i></a></li>
                                     <li><a href="#"><i class="fas fa-trash"></i></a></li>
                                 </ul>
                             </td>
