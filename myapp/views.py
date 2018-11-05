@@ -79,7 +79,10 @@ class FeaturesListView(generic.ListView):
     context_object_name = 'features'
 
     def get_queryset(self):
-        return []
+        permissions = RolePermission.objects.select_related('code').all()
+        paginator = Paginator(permissions, 9)
+        page = self.request.GET.get('page')
+        return paginator.get_page(page)
 
 
 class RolesListView(generic.ListView):
