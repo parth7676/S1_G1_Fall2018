@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from myapp.models import *
-from myapp.forms.user import CreateUserForm, ActiveStatusForm
+from myapp.forms.users import CreateUserForm, ActiveStatusForm
 from django.core.paginator import Paginator
 from django.views.generic import CreateView
 

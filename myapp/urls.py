@@ -1,6 +1,6 @@
 from myapp import views
 from django.urls import path, re_path
-from myapp.partials import accounts
+from myapp.partials_views import accounts
 from myapp.routes import auth, features, property, roles, users
 
 includeRoutes = [auth, users, roles, property, features]

@@ -7,3 +7,8 @@ class CreateUserForm(forms.ModelForm):
         model = User
         fields = ['firstName', 'lastName', 'email']
 
+
+class ActiveStatusForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['isActive']

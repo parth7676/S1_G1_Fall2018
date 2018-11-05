@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-from myapp.partials import property
+from myapp.partials_views import property
 
 routes = [
     path('search-property/', property.SearchPropertyView.as_view(), name="search-property"),

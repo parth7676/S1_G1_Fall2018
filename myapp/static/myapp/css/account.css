@@ -152,7 +152,6 @@ th, td {
 }
 
 .breadcrumb {
-    float:right;
     background:transparent;
     margin-top:0;
     margin-bottom:0;
@@ -190,23 +189,107 @@ th, td {
     background-color: #ffffff;
 }
 
-.btn-success {
+.btn {
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.btn-success, .btn-success:hover, .btn-success:focus {
     background-color: green;
     border: green 1px;
     color: white;
-    padding: 4px;
     border-radius: 4px;
 }
 
 .btn-default {
-    padding: 4px;
     border-radius: 4px;
+    padding: 4px;
 }
 
 .btn-danger {
     background-color: red;
     border: red 1px;
     color: white;
-    padding: 4px;
     border-radius: 4px;
+}
+
+.add-new-button {
+    position: absolute;
+    top:15px;
+    right:160px;
+    padding: 5px 10px;
+    background-color: #1E2E5C;
+    color: #ffffff;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.back-button {
+    position: absolute;
+    top:15px;
+    right:25px;
+    padding: 5px 10px;
+    background-color: #1E2E5C;
+    color: #ffffff;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.center-block {
+    margin: auto;
+    text-align: center;
+}
+
+/*Forms*/
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+.form {
+    padding: 20px;
+}
+
+/*
+    Media Queries
+ */
+
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
 }

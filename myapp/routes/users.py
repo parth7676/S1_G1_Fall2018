@@ -1,5 +1,5 @@
-from django.urls import path, re_path
-from myapp.partials import accounts
+from django.urls import path
+from myapp.partials_views import accounts
 
 routes = [
     path('users/', accounts.UsersView.as_view(), name='users'),

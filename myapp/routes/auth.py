@@ -1,5 +1,5 @@
 from django.urls import path
-from myapp.partials import auth
+from myapp.partials_views import auth
 
 routes = [
     path('login/', auth.sign_in, name="login"),
