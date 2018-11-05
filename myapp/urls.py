@@ -1,17 +1,17 @@
 from myapp import views
 from django.urls import path, re_path
+from myapp.partials import accounts
+from myapp.routes import auth, features, property, roles, users
+
+includeRoutes = [auth, users, roles, property, features]
 
 urlPatterns = [
     re_path(r'^$', views.home, name="home"),
     path('about/', views.about, name="about"),
-    path('search-property/', views.SearchPropertyView.as_view(), name="search-property"),
-    path('advertise-property/', views.advertise_property, name="advertise-property"),
-    path('login/', views.sign_in, name="login"),
-    path('register/', views.register, name="register"),
     path('contact/', views.contact, name="contact"),
-    re_path(r'^details/(?P<propertyID>[0-9]+)/$', views.property_details, name="property-details"),
-    path('account/', views.account, name='account'),
-    path('users/', views.UsersView.as_view(), name='users'),
-    path('features/', views.FeaturesListView.as_view(), name='features'),
-    path('roles/', views.RolesListView.as_view(), name='roles')
+    path('account/', accounts.account, name="account")
 ]
+
+for route in includeRoutes:
+    for route_path in route.routes:
+        urlPatterns.append(route_path)
