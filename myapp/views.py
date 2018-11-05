@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.views import generic
 from myapp.models import *
-from django.core.paginator import EmptyPage, PageNotAnInteger,Paginator
+from django.core.paginator import Paginator
+from django.views.generic import CreateView, DeleteView, UpdateView
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -49,7 +51,15 @@ class UsersView(generic.ListView):
     context_object_name = 'users'
 
     def get_queryset(self):
-        return User.objects.all()
+        users_list = User.objects.all().order_by('userID')
+        paginator = Paginator(users_list, 10)
+        page = self.request.GET.get('page')
+        return paginator.get_page(page)
+
+
+class UserCreate(CreateView):
+        model = User
+        fields = ['firstName', 'lastName', 'email']
 
 
 class SearchPropertyView(generic.ListView):
@@ -57,7 +67,29 @@ class SearchPropertyView(generic.ListView):
     context_object_name = 'properties'
 
     def get_queryset(self):
-        property_list = Property.objects.all().select_related('propertyProvince', 'propertyCountry', 'propertyCity')
+        property_list = Property.objects.all().select_related('propertyProvince', 'propertyCountry', 'propertyCity')\
+            .order_by('propertyID')
         paginator = Paginator(property_list, 9)
         page = self.request.GET.get('page')
         return paginator.get_page(page)
+
+
+class FeaturesListView(generic.ListView):
+    template_name = 'account/features.html'
+    context_object_name = 'features'
+
+    def get_queryset(self):
+        return []
+
+
+class RolesListView(generic.ListView):
+    template_name = 'account/roles.html'
+    context_object_name = 'roles'
+
+    def get_queryset(self):
+        return RoleCode.objects.all()
+
+
+class RoleDelete(DeleteView):
+    model = RoleCode
+    success_url = reverse_lazy('roles')

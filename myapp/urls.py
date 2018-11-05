@@ -11,5 +11,7 @@ urlPatterns = [
     path('contact/', views.contact, name="contact"),
     re_path(r'^details/(?P<propertyID>[0-9]+)/$', views.property_details, name="property-details"),
     path('account/', views.account, name='account'),
-    path('users/', views.UsersView.as_view(), name='users')
+    path('users/', views.UsersView.as_view(), name='users'),
+    path('features/', views.FeaturesListView.as_view(), name='features'),
+    path('roles/', views.RolesListView.as_view(), name='roles')
 ]

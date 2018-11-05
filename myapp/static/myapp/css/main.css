@@ -35,22 +35,22 @@ main {
 .searchTerm {
     float: left;
     width: 100%;
-    border: 3px solid #1E2E5C;
+    border: 3px solid #ffffff;
+    background-color: transparent;
     padding: 15px;
     height: 50px;
     border-radius: 10px;
     outline: none;
-    color: #1E2E5C;
     font-size: 20px;
 }
 
 .searchTerm:focus{
-    color: #1E2E5C;
+    color: #ffffff;
     border-color: #E72C25;
 }
 
 .searchTerm::-webkit-input-placeholder {
-    color: #1E2E5C;
+    color: #ffffff;
 }
 
 .searchTerm::-moz-placeholder {

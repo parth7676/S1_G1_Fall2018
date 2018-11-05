@@ -1,25 +1,24 @@
 {% extends 'account/accountBase.html' %}
 
-
 {% block account %}
 
     <section class="content-header">
-        <h1>Users</h1>
+        <h1>Features</h1>
         <ol class="breadcrumb">
         <li><a href="{% url 'account'%}"><i class="fas fa-tachometer-alt"></i> Home</a></li>
-        <li><a href="#">Users</a></li>
+        <li><a href="#">Features</a></li>
       </ol>
     </section>
     <section class="content">
         <div class="box">
-            {% if not users %}
+            {% if not features %}
             <div class="row">
                 <div class="no-data">
-                    <span><i class="fas fa-user"></i> <br/>  No user data available!</span>
+                    <span><i class="fas fa-cogs"></i> <br/> No features data available!</span>
                 </div>
             </div>
             {% endif %}
-            {% if users %}
+            {% if features %}
             <div class="row">
                 <table>
                     <thead>
@@ -127,7 +126,7 @@
             </div>
             {% endif %}
         </div>
-        {% if users %}
+        {% if features %}
         <div class="row">
             <div class="pagination">
                 <span class="step-links">

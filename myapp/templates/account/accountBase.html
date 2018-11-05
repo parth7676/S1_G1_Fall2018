@@ -16,6 +16,8 @@
             <div class="menu">
                 <a {%if request.path == '/account/' %} class="active"{% endif %} href="{% url 'account' %}"><i class="fas fa-home"></i> Home</a>
                 <a {%if request.path == '/users/' %} class="active"{% endif %} href="{% url 'users' %}"><i class="fas fa-users"></i> Users</a>
+                <a {%if request.path == '/features/' %} class="active"{% endif %} href="{% url 'features' %}"><i class="fas fa-cogs"></i> Features</a>
+                <a {%if request.path == '/roles/' %} class="active"{% endif %} href="{% url 'roles' %}"><i class="fas fa-cogs"></i> Manage Roles</a>
                 <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </div>
         </div>

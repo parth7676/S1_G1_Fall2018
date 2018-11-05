@@ -54,6 +54,39 @@ th, td {
     color: #E72C25;
 }
 
+.pagination {
+    align-items: center;
+	margin-top: 20px;
+	padding: 0 25px;
+    text-align: center;
+}
+
+.step-links a,.current  {
+    text-decoration: none;
+    background-color: #1E2E5C;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 0px 5px;
+    font-weight: bold;
+}
+
+.step-links a:hover {
+    color: #E72C25;
+    border-color: #E72C25;
+}
+
+.no-data {
+    text-align: center;
+    padding: 30px;
+    font-size: 20px;
+}
+
+.no-data i {
+    font-size: 50px;
+    padding: 10px;
+}
+
 .sidebar {
     font-family: 'Roboto', sans-serif;
     height: 100%;
@@ -68,7 +101,7 @@ th, td {
 .sidebar a {
   padding: 10px 8px 10px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 16px;
   color: #ffffff;
   display: block;
 }

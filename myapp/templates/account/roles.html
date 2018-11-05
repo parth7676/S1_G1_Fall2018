@@ -1,0 +1,52 @@
+{% extends 'account/accountBase.html' %}
+
+{% block account %}
+    <section class="content-header">
+        <h1>Roles</h1>
+        <ol class="breadcrumb">
+        <li><a href="{% url 'account'%}"><i class="fas fa-tachometer-alt"></i> Home</a></li>
+        <li><a href="#">Roles</a></li>
+      </ol>
+    </section>
+    <section class="content">
+        <div class="box">
+            {% if not roles %}
+            <div class="row">
+                <div class="no-data">
+                    <span><i class="fas fa-cogs"></i> <br/> No features data available!</span>
+                </div>
+            </div>
+            {% endif %}
+            {% if roles %}
+            <div class="row">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Role Id</th>
+                            <th>Role Name</th>
+                            <th>Role Code</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for role in roles %}
+                        <tr>
+                            <td>{{ role.id }}</td>
+                            <td>{{ role.roleName }}</td>
+                            <td>{{ role.code }}</td>
+                            <td>
+                                <ul class="table-actions">
+                                    <li><a href="#"><i class="fas fa-info-circle"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-user-edit"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-trash"></i></a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
