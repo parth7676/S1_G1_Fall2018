@@ -234,3 +234,4 @@ class RolePermission(models.Model):
 
     class Meta:
         db_table = "Role_Permission"
+        ordering = ['rolePermissionID']
