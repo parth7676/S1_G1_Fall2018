@@ -211,8 +211,10 @@ th, td {
 }
 
 .btn-default {
+    background-color: #1E2E5C;
+    border: #1E2E5C 1px;
+    color: white;
     border-radius: 4px;
-    padding: 4px;
 }
 
 .btn-danger {
@@ -254,7 +256,7 @@ th, td {
 }
 
 /*Forms*/
-input[type=text], select, textarea {
+input[type=text],input[type=password], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -292,4 +294,81 @@ label {
         width: 100%;
         margin-top: 0;
     }
+}
+
+/*Popup Model CSS*/
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.71);
+}
+
+.modal-dialog {
+    background-color: #ECEFF4;
+    position: relative;
+    width: 600px;
+    margin: 30px auto;
+    border-radius: 6px;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+}
+
+.modal-header .close {
+    margin-top: -2px;
+    background-color: transparent;
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
 }
