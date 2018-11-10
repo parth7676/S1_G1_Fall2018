@@ -32,18 +32,25 @@ def user_edit_view(request, user_id):
         if form.is_valid():
             user = form.save(commit=False)
             new_password = request.POST['password']
-            new_role = request.POST['role']
+            new_roles = request.POST.getlist('role')
             if new_password:
                 password = Password.objects.filter(user__userID=user_id).first()
                 password.password = make_password(new_password)
                 password.save()
 
-            if new_role:
-                role = RoleCode.objects.filter(roleName=new_role).first()
-                user_role = UserRole.objects.filter(user__userID=user_id).first()
-                user_role.role = role
-                user_role.save()
+            if new_roles:
+                # delete prev roles
+                UserRole.objects.filter(user_id=user.userID).delete()
 
+                # add new roles
+                roles = RoleCode.objects.filter(roleName__in=new_roles)
+                for role in roles:
+                    user_role = UserRole(user_id=user.userID, role_id=role.id)
+                    user_role.save()
+                    user.roles.add(user_role)
+                    user.save()
+
+                form.save_m2m()
             user.save()
             return redirect('/users/edit/' + user_id)
     else:
@@ -100,7 +107,7 @@ class UsersView(generic.ListView):
     context_object_name = 'users'
 
     def get_queryset(self):
-        users_list = User.objects.all().order_by('userID')
+        users_list = User.objects.prefetch_related('roles').all().order_by('userID')
         paginator = Paginator(users_list, 10)
         page = self.request.GET.get('page')
         return paginator.get_page(page)

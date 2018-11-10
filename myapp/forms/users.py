@@ -18,8 +18,7 @@ class UserFormWithRelatedFields(CreateUserForm):
 
     password = forms.CharField(widget=forms.TextInput(), required=False)
 
-    role = forms.ModelChoiceField(required=True, queryset=RoleCode.objects.all(),
-                                  empty_label=None, to_field_name='roleName')
+    role = forms.ModelMultipleChoiceField(required=False, queryset=RoleCode.objects.all(), to_field_name='roleName')
 
     class Meta(CreateUserForm.Meta):
         fields = CreateUserForm.Meta.fields + ['password', 'role']
