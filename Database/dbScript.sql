@@ -73,9 +73,9 @@ insert into main.Properties (propertyID, propertyTitle, propertyStreet, property
 insert into main.Properties (propertyID, propertyTitle, propertyStreet, propertyStreetNumber, propertyPostalCode, propertyConstructionDate, propertyRegistrationDate, propertyNoofHalls, propertyNoofRooms, propertyNoofBathrooms, propertyNoofFloors, propertyTotalArea, propertyAskingPrice, propertySellingPrice, propertyCategory_id, propertyCity_id, propertyCountry_id, propertyFacing_id, propertyProvince_id, propertySector_id) values (14, '44 Sowthwell Dr', 'Sowthwell Dr', 44, 'M3B29N', '2008-05-13', '2008-11-28', 2, 5, 3, 2, 1500, 300000, 280000, 1, 1, 1, 1, 2, 2);
 insert into main.Properties (propertyID, propertyTitle, propertyStreet, propertyStreetNumber, propertyPostalCode, propertyConstructionDate, propertyRegistrationDate, propertyNoofHalls, propertyNoofRooms, propertyNoofBathrooms, propertyNoofFloors, propertyTotalArea, propertyAskingPrice, propertySellingPrice, propertyCategory_id, propertyCity_id, propertyCountry_id, propertyFacing_id, propertyProvince_id, propertySector_id) values (15, '154 Hamilton Street', 'Hamilton Street', 154, 'M4M2C8', '2013-11-11', '2013-10-10', 1, 3, 2, 11, 1550, 200000, 220000, 4, 1, 1, 2, 2, 2);
 
-INSERT INTO Role_Code (id, roleName, code) VALUES (1, 'uploader', 'PROPERTY_UPLOADER');
-INSERT INTO Role_Code (id, roleName, code) VALUES (2, 'verifier', 'PROPERTY_VERIFIER');
-INSERT INTO Role_Permission (rolePermissionID, sysFeature, code_id) VALUES (1, 'Uploads the properties to the system', 1);
-INSERT INTO Role_Permission (rolePermissionID, sysFeature, code_id) VALUES (2, 'verifies the properties that are posted.', 2);
+INSERT INTO main.Role_Code (id, roleName, code) VALUES (1, 'uploader', 'PROPERTY_UPLOADER');
+INSERT INTO main.Role_Code (id, roleName, code) VALUES (2, 'verifier', 'PROPERTY_VERIFIER');
+INSERT INTO main.Role_Permission (rolePermissionID, sysFeature, code_id) VALUES (1, 'Uploads the properties to the system', 1);
+INSERT INTO main.Role_Permission (rolePermissionID, sysFeature, code_id) VALUES (2, 'verifies the properties that are posted.', 2);
 
-INSERT INTO User_Role (id, dateAssigned, role_id, user_id) VALUES (1, '2018-10-25', 1, 1);
+INSERT INTO main.User_Role (id, dateAssigned, role_id, user_id) VALUES (1, '2018-10-25', 1, 1);

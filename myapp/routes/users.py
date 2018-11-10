@@ -3,6 +3,7 @@ from myapp.partials_views import accounts
 
 routes = [
     path('users/', accounts.UsersView.as_view(), name='users'),
-    path('users/activate/', accounts.activate_user),
+    path('users/activate/', accounts.activate_user, name='user-activate'),
+    path('users/add/', accounts.user_create_view, name='add-user'),
     re_path(r'^users/edit/(?P<user_id>[0-9]+)/$', accounts.user_edit_view, name='update-user')
 ]

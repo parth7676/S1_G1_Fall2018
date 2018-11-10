@@ -6,13 +6,13 @@
             <h1>Add New User</h1>
         {% else %}
             <h1>Update User</h1>
-            <a href="{% url 'users' %}" class="back-button"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
         {% endif %}
+        <a href="{% url 'users' %}" class="back-button"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
     </section>
     <section class="content">
         <div class="box">
            <div class="row form">
-            <form method="post" action="/users/edit/{{ userID }}/">
+            <form method="post" {% if isEdit %} action="/users/edit/{{ userID }}/" {% else %} action="/users/add/" {% endif %}>
                 {% csrf_token %}
                 {% for field in form %}
                 <div class="row">
