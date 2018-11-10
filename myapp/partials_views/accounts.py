@@ -1,11 +1,10 @@
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect
 from django.views import generic
-from myapp.models import *
+from myapp.models import User, Password, RoleCode, UserRole
 import datetime
 from myapp.forms.users import ActiveStatusForm, UserFormWithRelatedFields
 from django.core.paginator import Paginator
-from django.views.generic import CreateView
 
 
 def account(request):
@@ -102,8 +101,6 @@ class UsersView(generic.ListView):
 
     def get_queryset(self):
         users_list = User.objects.all().order_by('userID')
-        user = users_list.first()
-        print(User.objects.first().userrole_set.all())
         paginator = Paginator(users_list, 10)
         page = self.request.GET.get('page')
         return paginator.get_page(page)
