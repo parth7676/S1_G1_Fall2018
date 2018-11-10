@@ -201,10 +201,10 @@ class RoleCode(models.Model):
 
 class UserRole(models.Model):
     def __str__(self):
-        return "%s is %s" % (self.user.full_name, self.role.code)
+        return self.role.code
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='users')
-    role = models.ForeignKey(RoleCode, on_delete=models.CASCADE, related_name='roles')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='roles')
+    role = models.ForeignKey(RoleCode, on_delete=models.CASCADE, related_name='role_code')
     dateAssigned = models.DateField(auto_now=True)
 
     class Meta:

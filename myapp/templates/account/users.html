@@ -47,7 +47,11 @@
                             </td>
                             <td>{{ user.lastName }}</td>
                             <td>{{ user.email }}</td>
-                            <td>{{ user.roles.roleName }}</td>
+                            <td>
+                                {% for role in user.roles.all %}
+                                    <span class="badge" style="font-size: 12px">{{ role }}</span>
+                                {% endfor %}
+                             </td>
                             <td>
                                 <form action="/users/activate/" method="post">
                                     {% csrf_token %}
