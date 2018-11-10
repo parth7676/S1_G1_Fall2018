@@ -5,6 +5,7 @@
 
     <section class="content-header">
         <h1>Users</h1>
+         <a href="{% url 'add-user' %}" class="add-new-button"><i class="fas fa-plus"></i> Add New</a>
         <ol class="breadcrumb">
         <li><a href="{% url 'account'%}"><i class="fas fa-tachometer-alt"></i> Home</a></li>
         <li><a href="#">Users</a></li>
@@ -28,6 +29,7 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th>Enable/Disable Account</th>
                             <th>Actions</th>
                         </tr>
@@ -45,6 +47,7 @@
                             </td>
                             <td>{{ user.lastName }}</td>
                             <td>{{ user.email }}</td>
+                            <td>{{ user.roles.roleName }}</td>
                             <td>
                                 <form action="/users/activate/" method="post">
                                     {% csrf_token %}
@@ -62,7 +65,7 @@
                             <td>
                                 <ul class="table-actions">
                                     <li><a href="#"><i class="fas fa-info-circle"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-user-edit"></i></a></li>
+                                    <li><a href="edit/{{ user.userID }}"><i class="fas fa-edit"></i></a></li>
                                     <li><a href="#"><i class="fas fa-trash"></i></a></li>
                                 </ul>
                             </td>
