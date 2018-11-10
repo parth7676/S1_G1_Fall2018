@@ -1,9 +1,10 @@
-{% extends 'account/accountBase.html' %}
+    {% extends 'account/accountBase.html' %}
 
 {% block account %}
 
     <section class="content-header">
         <h1>Features</h1>
+         <a href="{% url 'add-feature' %}" class="add-new-button"><i class="fas fa-plus"></i> Add New</a>
         <ol class="breadcrumb">
         <li><a href="{% url 'account'%}"><i class="fas fa-tachometer-alt"></i> Home</a></li>
         <li><a href="#">Features</a></li>
@@ -25,7 +26,7 @@
                         <tr>
                             <th>Feature ID</th>
                             <th>System Feature</th>
-                            <th>Code Name</th>
+                            <th>Permissions</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -34,11 +35,10 @@
                         <tr>
                             <td>{{ feature.rolePermissionID }}</td>
                             <td>{{ feature.sysFeature }}</td>
-                            <td>{{ feature.code }}</td>
+                            <td>{{ feature }}</td>
                             <td>
                                 <ul class="table-actions">
-                                    <li><a href="#"><i class="fas fa-info-circle"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-user-edit"></i></a></li>
+                                    <li><a href="{% url 'update-feature' feature.rolePermissionID %}"><i class="fas fa-unlock-alt"></i></a></li>
                                     <li><a href="#"><i class="fas fa-trash"></i></a></li>
                                 </ul>
                             </td>

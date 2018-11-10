@@ -203,6 +203,10 @@ th, td {
     float: right;
 }
 
+.margin-top-10 {
+    margin-top: 10px;
+}
+
 .btn-success, .btn-success:hover, .btn-success:focus {
     background-color: green;
     border: green 1px;
