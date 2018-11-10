@@ -1,9 +1,12 @@
-from django.forms import ModelForm
-from myapp.models import RolePermission
+from django import forms
+from myapp.models import RolePermission, PermissionType
 from django.utils.translation import gettext_lazy as _
 
 
-class CreateFeatureForm(ModelForm):
+class CreateFeatureForm(forms.ModelForm):
+    permissions = forms.ModelMultipleChoiceField(queryset=PermissionType.objects.all(),
+                                                 to_field_name='name', required=False)
+
     class Meta:
         model = RolePermission
         fields = ['sysFeature', 'code', 'permissions']
