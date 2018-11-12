@@ -3,6 +3,7 @@ from myapp.models import RolePermission
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from myapp.forms.features import CreateFeatureForm
+from django.http import HttpResponseRedirect
 
 
 class FeaturesListView(generic.ListView):
@@ -41,3 +42,12 @@ def update_feature_view(request, role_permission_id):
         'isEdit': True
     }
     return render(request, 'account/feature_form.html', context)
+
+
+def feature_delete_view(request, role_permission_id):
+    feature = RolePermission.objects.filter(rolePermissionID=role_permission_id)
+
+    if feature:
+        feature.delete()
+        return HttpResponseRedirect('/features/')
+
