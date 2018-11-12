@@ -3,7 +3,8 @@ from django.views import generic
 from myapp.models import RoleCode
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
-from myapp.forms.roles import CreateRoleForm
+from myapp.forms.roles import CreateRoleForm, DeleteRoleForm
+from django.http import HttpResponseRedirect
 
 
 class RolesListView(generic.ListView):
@@ -44,5 +45,16 @@ def role_update_view(request, role_id):
         'isEdit': True
     }
     return render(request, 'account/role_form.html', context)
+
+
+def role_delete_view(request, role_id):
+    role = RoleCode.objects.filter(id=role_id)
+
+    if role:
+        role.delete()
+        return HttpResponseRedirect('/roles/')
+
+
+
 
 

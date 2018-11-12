@@ -1,4 +1,4 @@
-{% extends 'account/accountBase.html' %}
+ {% extends 'account/accountBase.html' %}
 
 {% block account %}
     <section class="content-header">
@@ -6,8 +6,8 @@
             <h1>Add New Role</h1>
         {% else %}
             <h1>Update Role</h1>
-            <a href="{% url 'roles' %}" class="back-button"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
         {% endif %}
+        <a href="{% url 'roles' %}" class="back-button"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
     </section>
     <section class="content">
         <div class="box">

@@ -11,3 +11,9 @@ class CreateRoleForm(ModelForm):
             'roleName': _('Role Name'),
             'code': _('Code')
         }
+
+
+class DeleteRoleForm(ModelForm):
+    class Meta:
+        model = RoleCode
+        fields = ['roleName', 'code']
