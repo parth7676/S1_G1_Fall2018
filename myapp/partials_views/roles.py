@@ -4,6 +4,7 @@ from myapp.models import RoleCode
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
 from myapp.forms.roles import CreateRoleForm, DeleteRoleForm
+from django.http import HttpResponseRedirect
 
 
 class RolesListView(generic.ListView):
@@ -47,10 +48,11 @@ def role_update_view(request, role_id):
 
 
 def role_delete_view(request, role_id):
-    data = RoleCode.objects.filter(id=role_id).first()
-    if not data:
-        data.delete()
-        return redirect('roles')
+    role = RoleCode.objects.filter(id=role_id)
+
+    if role:
+        role.delete()
+        return HttpResponseRedirect('/roles/')
 
 
 
