@@ -5,6 +5,7 @@ from myapp.models import User, Password, RoleCode, UserRole
 import datetime
 from myapp.forms.users import ActiveStatusForm, UserFormWithRelatedFields
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
 
 
 def account(request):
@@ -111,3 +112,11 @@ class UsersView(generic.ListView):
         paginator = Paginator(users_list, 10)
         page = self.request.GET.get('page')
         return paginator.get_page(page)
+
+
+def user_delete_view(request, user_id):
+    user = User.objects.filter(userID=user_id)
+
+    if user:
+        user.delete()
+        return HttpResponseRedirect('/users/')

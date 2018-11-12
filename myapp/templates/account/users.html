@@ -69,7 +69,7 @@
                             <td>
                                 <ul class="table-actions">
                                     <li><a href="edit/{{ user.userID }}"><i class="fas fa-edit"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-trash"></i></a></li>
+                                    <li><a><i class="fas fa-trash" id="deleteButton" onclick="openForm(event);" data-url="{% url 'delete-user' user.userID %}"></i></a></li>
                                 </ul>
                             </td>
                         </tr>
@@ -101,4 +101,42 @@
         </div>
         {% endif %}
     </section>
+    <div class="modal" id="myForm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" onclick="closeForm()">×</button>
+                    <h4 class="modal-title">Delete User</h4>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this user?
+                </div>
+                <div class="modal-footer">
+                     <form id="deleteForm" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success" id="confirm">Confirm</button>
+                        <button type="button" class="btn btn-default" id="cancel" onclick="closeForm()">Cancel</button>
+                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        function openForm(e) {
+            const url = e.target.dataset.url
+            console.log(url);
+            const deleteForm = document.getElementById("deleteForm");
+            deleteForm.action = url
+            console.log(deleteForm)
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+</script>
 {% endblock %}
