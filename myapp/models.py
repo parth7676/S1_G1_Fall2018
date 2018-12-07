@@ -162,6 +162,7 @@ class User(models.Model):
     lastName = models.CharField(max_length=50, null=False)
     email = models.EmailField(max_length=30, null=False)
     isActive = models.BooleanField(null=False, default=True)
+    last_login = models.DateTimeField(null=True)
 
     @property
     def full_name(self):

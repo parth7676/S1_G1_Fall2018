@@ -2,23 +2,16 @@
 
 {% block title%}LogIn | Home Run{% endblock %}
 {% block body %}
-{#    <header style="overflow: hidden;">#}
-{#        <article>#}
-{#            <h1>Home Run</h1>#}
-{#            <h2 style="margin-bottom: 10px">We are currently under construction!!</h2>#}
-{#            {% load static %}<img src="{% static 'myapp/images/underconstruction.jpg' %}">#}
-{##}
-{#        </article>#}
-{#    </header>#}
-    <form>
+    <form method="post" action="/login/">
+      {% csrf_token %}
       <div class="container">
         <h1>Sign in</h1>
         <p>Please fill in this form to log in.</p>
         <hr>
 
         <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
-
+        <input type="email" class="margin-tb-40" placeholder="Enter Email" name="email" required>
+   
         <label for="password"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
 

@@ -1,9 +1,9 @@
 from myapp import views
 from django.urls import path, re_path
 from myapp.partials_views import accounts
-from myapp.routes import auth, features, property, roles, users, advertisements
+from myapp.routes import auth, features, property, roles, users, advertisements, permissions
 
-includeRoutes = [auth, users, roles, property, features, advertisements]
+includeRoutes = [auth, users, roles, property, features, advertisements, permissions]
 
 urlPatterns = [
     re_path(r'^$', views.home, name="home"),

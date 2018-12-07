@@ -4,4 +4,5 @@ from myapp.partials_views import auth
 routes = [
     path('login/', auth.sign_in, name="login"),
     path('register/', auth.register, name="register"),
+    path('logout', auth.logout_user, name="logout")
 ]

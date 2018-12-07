@@ -22,8 +22,15 @@
         <li><a {% if request.path == '/advertise-property/' %} class="active"{% endif %} href="{% url 'advertise-property' %}">Advertise Property</a></li>
         <li><a {% if request.path == '/about/' %}class="active"{% endif %} href="{% url 'about' %}">About</a></li>
         <li><a {% if request.path == '/contact/' %}class="active"{% endif %} href="{% url 'contact' %}">Contact</a></li>
-        <li style="float:right"><a {% if request.path == '/login/' %}class="active"{% endif %} href="{% url 'login' %}">Sign In</a></li>
-        <li style="float:right"><a {% if request.path == '/register/' %}class="active"{% endif %} href="{% url 'register' %}">Register</a></li>
+        {% if user.is_anonymous %}
+            <li style="float:right"><a {% if request.path == '/login/' %}class="active"{% endif %} href="{% url 'login' %}">Sign In</a></li>
+        {% else %}
+            <li style="float:right"><a {% if request.path == '/logout/' %}class="active"{% endif %} href="{% url 'logout' %}">Logout</a></li>
+        {% endif %}
+
+        {% if user.is_anonymous %}
+            <li style="float:right"><a {% if request.path == '/register/' %}class="active"{% endif %} href="{% url 'register' %}">Register</a></li>
+        {% endif %}
     </ul>
     <div class="template-container">
         {% block body %}

@@ -20,6 +20,15 @@ body {
     background-image: url("/static/myapp/images/pattern.png");
 }
 
+/*Forms*/
+input[type=text], input[type=email], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
 main {
     margin: 0 auto;
     min-width: 300px;
@@ -279,6 +288,10 @@ aside {
 
 .margin-top-10 {
     margin-top: 10px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
 }
 
 .column-3 {
