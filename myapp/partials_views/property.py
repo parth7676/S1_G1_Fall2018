@@ -9,7 +9,9 @@ def advertise_property(request):
 
 
 def property_details(request, propertyID):
-    return render(request, 'propertydetails.html')
+    property_item = Property.objects.filter(propertyID=propertyID).select_related('propertyCity').first()
+    print(property_item)
+    return render(request, 'propertydetails.html', {'property': property_item})
 
 
 # class PropertyDetail(generic.DetailView):

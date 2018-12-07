@@ -238,3 +238,15 @@ class RolePermission(models.Model):
     class Meta:
         db_table = "Role_Permission"
         ordering = ['rolePermissionID']
+
+
+class Advertisement(models.Model):
+    advID = models.IntegerField(primary_key=True)
+    advUserID = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    advStartDate = models.DateField()
+    advEndDate = models.DateField()
+    advDescription = models.CharField(max_length=200)
+    propertyID = models.OneToOneField(to=Property, on_delete=models.CASCADE, to_field='propertyID')
+
+    class Meta:
+        db_table = "Advertisements"
