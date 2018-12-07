@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from myapp.models import Property
 
 
 def home(request):
-    return render(request, 'home.html')
+    properties = Property.objects.select_related('propertyCity', 'propertyUser')[:3]
+    return render(request, 'home.html', {'properties': properties})
 
 
 def about(request):
