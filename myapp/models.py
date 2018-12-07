@@ -133,6 +133,8 @@ class Property(models.Model):
     propertyTotalArea = models.FloatField()
     propertyAskingPrice = models.FloatField()
     propertySellingPrice = models.FloatField()
+    propertyUser = models.ForeignKey(to='User', to_field='userID',
+                                        on_delete=models.CASCADE, related_name='user')
 
     class Meta:
         db_table = 'Properties'
