@@ -6,5 +6,5 @@ def create_advertisement(request):
     form = CreateAdvertisementForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('create-advertisement')
-    return render(request, 'advertisement_form.html', {'form': form })
+        return redirect('advertisements')
+    return render(request, 'advertisement_form.html', {'form': form})

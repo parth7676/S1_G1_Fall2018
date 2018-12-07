@@ -1,6 +1,6 @@
-from django.urls import path, re_path
+from django.urls import path
 from myapp.partials_views import advertisements
 
 routes = [
-    path('advertisements/', advertisements.create_advertisement, name='advertisements'),
+    path('advertise-property/', advertisements.create_advertisement, name="advertise-property"),
 ]
