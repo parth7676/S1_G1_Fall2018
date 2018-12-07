@@ -1,6 +1,7 @@
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect
 from django.views import generic
+from myapp.decorators import admin_only
 from myapp.models import User, Password, RoleCode, UserRole
 import datetime
 from myapp.forms.users import ActiveStatusForm, UserFormWithRelatedFields
@@ -8,10 +9,12 @@ from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 
 
+@admin_only
 def account(request):
     return render(request, 'account/accountBase.html')
 
 
+@admin_only
 def activate_user(request):
     if request.POST:
         user_id = request.POST['user_id']
@@ -25,6 +28,7 @@ def activate_user(request):
             return redirect('/users')
 
 
+@admin_only
 def user_edit_view(request, user_id):
     user = User.objects.get(userID=user_id)
     form = UserFormWithRelatedFields(request.POST or None, instance=user)
@@ -67,6 +71,7 @@ def user_edit_view(request, user_id):
         return render(request, 'account/user_form.html', context)
 
 
+@admin_only
 def user_create_view(request):
     form = UserFormWithRelatedFields(request.POST or None)
 
@@ -78,7 +83,7 @@ def user_create_view(request):
 
             if new_password:
                 password = Password()
-                password.password = make_password(new_password)
+                password.encryptedPassword = make_password(new_password)
                 password.userAccountExpiryDate = datetime.date.today() + datetime.timedelta(30)
                 password.user = user
                 password.save()
@@ -114,6 +119,7 @@ class UsersView(generic.ListView):
         return paginator.get_page(page)
 
 
+@admin_only
 def user_delete_view(request, user_id):
     user = User.objects.filter(userID=user_id)
 

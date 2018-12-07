@@ -127,3 +127,9 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
+
+AUTHENTICATION_BACKENDS = [
+    'myapp.backends.CustomAuth'
+]
+
+Auth_USER_MODEL = 'myapp.User'
